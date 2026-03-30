@@ -37,5 +37,5 @@ GM 전용. 플레이어는 읽으면 안 됩니다.
 > *"동방의 하얀나라는 당신을 기다리고 있습니다.*
 > *이 세계의 다음 이야기는 당신이 씁니다."*
 >
-> **FEWK** Created by 하얀용 WhtDrgon
+> FEWK Created by 하얀용 WhtDrgon
 > www.MEJE.kr

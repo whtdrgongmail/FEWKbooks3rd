@@ -1,11 +1,11 @@
 # FEWK LOREBOOK
 
-> **Far East White Kingdom — 동방의 하얀나라**
+> Far East White Kingdom — 동방의 하얀나라
 > 하얀용 WhtDrgon 저 | www.MEJE.kr
 
 ---
 
-동양 사이버펑크 TRPG 세계관 **FEWK**의 로어북 아카이브입니다.
+동양 사이버펑크 TRPG 세계관 FEWK의 로어북 아카이브입니다.
 8권의 시리즈가 이 세계의 모든 것을 담고 있습니다.
 
 ---
@@ -14,7 +14,7 @@
 
 | Book | 제목 | 설명 | 상태 |
 |------|------|------|------|
-| [[book0/index\|Book 0]] | **Quick Start (이지룰)** | 5분 안에 시작하는 FEWK. 프리메이드 캐릭터 4명 + 입문 시나리오 | 공개 |
+| [[book0/index\|Book 0]] | Quick Start (이지룰) | 5분 안에 시작하는 FEWK. 프리메이드 캐릭터 4명 + 입문 시나리오 | 공개 |
 | Book 1 | World Guide (세계관 안내서) | 세계의 법칙, 역사, 지리, 사회, 인물 | 준비 중 |
 | Book 2 | Player's Guide (플레이어 가이드) | 캐릭터 생성 + 전체 규칙 | 준비 중 |
 | Book 3 | Game Master's Guide | 시나리오 + GM 도구. GM 전용 | 준비 중 |
