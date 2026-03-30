@@ -12,16 +12,29 @@
 
 ## 시리즈
 
-| Book | 제목 | 설명 | 상태 |
-|------|------|------|------|
-| [Book 0](#book0/index) | Quick Start (이지룰) | 5분 안에 시작하는 FEWK. 프리메이드 캐릭터 4명 + 입문 시나리오 | 공개 |
-| [Book 1](#book1/index) | World Guide (세계관 안내서) | 세계의 법칙, 역사, 지리, 사회, 인물 | 공개 |
-| [Book 2](#book2/index) | Player's Guide (플레이어 가이드) | 캐릭터 생성 + 전체 규칙 | 공개 |
-| [Book 3](#book3/index) | Game Master's Guide | 시나리오 + GM 도구. GM 전용 | 공개 |
-| Book 4 | 통합상거래 안내서 | 장비, 무기, 임플란트, 탈것 카탈로그 | 준비 중 |
-| Book 5 | 계도감 (Atlas of Dimensions) | 차원계 탐사 가이드 | 준비 중 |
-| Book 6 | 존재도감 (Bestiary & Beings) | 존재 분류, 몬스터, 클래스, NPC | 준비 중 |
-| Book 7 | 세력도감 (Factions & Operations) | 대사국, 기업, 러너, 미션 제너레이터 | 준비 중 |
+### [Book 0 — Quick Start (이지룰)](#book0/index)
+5분 안에 시작하는 FEWK. 프리메이드 캐릭터 4명 + 입문 시나리오 1편.
+
+### [Book 1 — World Guide (세계관 안내서)](#book1/index)
+세계의 법칙, 역사, 지리, 사회, 인물. RPG를 하지 않아도 읽을 가치가 있습니다.
+
+### [Book 2 — Player's Guide (플레이어 가이드)](#book2/index)
+캐릭터 생성, 자격 구매제, 9개 프로토타입 클래스, 전투, 차원이동 전체 규칙.
+
+### [Book 3 — Game Master's Guide](#book3/index)
+시나리오 3편 + 미션 설계 + NPC 데이터 + GM 도구. GM 전용.
+
+### Book 4 — 통합상거래 안내서
+장비, 무기, 임플란트, 탈것 카탈로그. (준비 중)
+
+### Book 5 — 계도감 (Atlas of Dimensions)
+차원계 탐사 가이드. (준비 중)
+
+### Book 6 — 존재도감 (Bestiary & Beings)
+존재 분류, 몬스터, 클래스, NPC. (준비 중)
+
+### Book 7 — 세력도감 (Factions & Operations)
+대사국, 기업, 러너, 미션 제너레이터. (준비 중)
 
 ---
 
