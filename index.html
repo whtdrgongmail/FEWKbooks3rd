@@ -352,11 +352,15 @@ const PAGE_LABELS = {
   'book0/series': '시리즈 안내'
 };
 
-// Convert [[wikilinks]] to HTML links
+// Convert [[wikilinks]] to markdown links before table parsing
 function convertWikilinks(md) {
-  // [[path\|display text]] (escaped pipe in tables) and [[path|display text]]
-  md = md.replace(/\[\[([^\]\|\\]+)\\?\|([^\]]+)\]\]/g, function(_, path, text) {
-    return '[' + text + '](#' + path.trim() + ')';
+  // First: normalize \| to | inside [[ ]]
+  md = md.replace(/\[\[([^\]]*?)\]\]/g, function(match) {
+    return match.replace(/\\\|/g, '|');
+  });
+  // [[path|display text]]
+  md = md.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, function(_, path, text) {
+    return '[' + text.trim() + '](#' + path.trim() + ')';
   });
   // [[path]]
   md = md.replace(/\[\[([^\]]+)\]\]/g, function(_, path) {
