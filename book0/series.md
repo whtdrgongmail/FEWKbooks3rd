@@ -1,7 +1,7 @@
 # 6. 더 깊은 세계로 — FEWK 시리즈 안내
 
 > *FEWK LOREBOOK — Book 0: Quick Start*
-> 관련 항목: [[FEWK_Book0_목차]]
+> 관련 항목: [[book0/index]]
 
 ---
 

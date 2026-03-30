@@ -1,7 +1,7 @@
 # 캐릭터 3: 마보이(Maboy)
 
 > *FEWK LOREBOOK — Book 0: Quick Start — 프리메이드 캐릭터*
-> 관련 항목: [[FEWK_Book0_캐릭터_진]] | [[FEWK_Book0_캐릭터_소화]] | [[FEWK_Book0_캐릭터_한칸]]
+> 관련 항목: [[book0/jin]] | [[book0/soha]] | [[book0/hankan]]
 
 ---
 

@@ -1,7 +1,7 @@
 # 캐릭터 2: 소화(Soha)
 
 > *FEWK LOREBOOK — Book 0: Quick Start — 프리메이드 캐릭터*
-> 관련 항목: [[FEWK_Book0_캐릭터_진]] | [[FEWK_Book0_캐릭터_마보이]] | [[FEWK_Book0_캐릭터_한칸]]
+> 관련 항목: [[book0/jin]] | [[book0/maboy]] | [[book0/hankan]]
 
 ---
 

@@ -1,7 +1,7 @@
 # 2. 규칙 요약 — 이지룰
 
 > *FEWK LOREBOOK — Book 0: Quick Start*
-> 관련 항목: [[FEWK_Book0_빠른참조]] | [[FEWK_Book0_세계소개]]
+> 관련 항목: [[book0/reference]] | [[book0/world]]
 
 ---
 

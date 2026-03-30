@@ -1,7 +1,7 @@
 # 1. 이 세계는 — 2페이지 요약
 
 > *FEWK LOREBOOK — Book 0: Quick Start*
-> 관련 항목: [[FEWK_Book0_이지룰]] | [[FEWK_Book0_세나이트_단편]]
+> 관련 항목: [[book0/rules]] | [[book0/fiction]]
 
 ---
 

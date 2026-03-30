@@ -1,30 +1,456 @@
----
-layout: default
-title: "홈"
----
-<div class="hero">
-  <h1 class="hero-title">
-    <span class="glow-cyan">FEWK</span> <span class="glow-magenta">LOREBOOK</span>
-  </h1>
-  <p class="hero-sub">
-    다크 사이버펑크 세계관의 모든 기록이 이곳에 보존됩니다.<br>
-    캐릭터, 세력, 장소, 그리고 잊혀진 역사까지.
-  </p>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FEWK LOREBOOK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dk: #1A1A2E;
+  --dk2: #16162B;
+  --dk3: #1F1F3A;
+  --dk4: #252545;
+  --ac: #E94560;
+  --gd: #C4A35A;
+  --bg: #F0EDE8;
+  --bg2: #A09890;
+  --bg3: #6B6558;
+  --border: #2A2A4A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; scroll-behavior:smooth; }
+body {
+  font-family:'Noto Sans KR',sans-serif;
+  background:var(--dk);
+  color:var(--bg);
+  line-height:1.7;
+  min-height:100vh;
+  display:flex;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width:260px;
+  min-height:100vh;
+  background:var(--dk2);
+  border-right:1px solid var(--border);
+  padding:1.5rem 0;
+  position:fixed;
+  top:0; left:0;
+  overflow-y:auto;
+  z-index:100;
+  transition:transform .3s;
+}
+.sidebar-title {
+  font-family:'JetBrains Mono',monospace;
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--ac);
+  letter-spacing:.1em;
+  padding:0 1.2rem 1rem;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+}
+.sidebar-title span { color:var(--gd); }
+.nav-section {
+  padding:.8rem 0 .3rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;
+  color:var(--bg3);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  padding-left:1.2rem;
+}
+.nav-link {
+  display:block;
+  padding:.35rem 1.2rem .35rem 1.5rem;
+  color:var(--bg2);
+  text-decoration:none;
+  font-size:.88rem;
+  transition:all .2s;
+  border-left:2px solid transparent;
+}
+.nav-link:hover {
+  color:var(--bg);
+  background:rgba(233,69,96,.06);
+  border-left-color:var(--ac);
+}
+.nav-link.active {
+  color:var(--ac);
+  background:rgba(233,69,96,.1);
+  border-left-color:var(--ac);
+  font-weight:500;
+}
+.nav-link.sub { padding-left:2.2rem; font-size:.82rem; }
+
+/* ── Mobile toggle ── */
+.menu-toggle {
+  display:none;
+  position:fixed;
+  top:.8rem; left:.8rem;
+  z-index:200;
+  background:var(--dk2);
+  border:1px solid var(--border);
+  color:var(--ac);
+  font-size:1.3rem;
+  padding:.4rem .6rem;
+  cursor:pointer;
+  border-radius:4px;
+}
+
+/* ── Main ── */
+.main {
+  margin-left:260px;
+  flex:1;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.topbar {
+  background:rgba(22,22,43,.95);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  padding:.6rem 2rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.breadcrumb {
+  font-family:'JetBrains Mono',monospace;
+  font-size:.8rem;
+  color:var(--bg3);
+}
+.breadcrumb a { color:var(--gd); text-decoration:none; }
+.breadcrumb a:hover { color:var(--ac); }
+
+.content-area {
+  flex:1;
+  max-width:900px;
+  padding:2rem 2.5rem 4rem;
+}
+
+/* ── Markdown Rendered Styles ── */
+.content-area h1 {
+  font-size:2rem;
+  font-weight:700;
+  color:var(--bg);
+  margin-bottom:.5rem;
+  padding-bottom:.5rem;
+  border-bottom:2px solid var(--ac);
+}
+.content-area h2 {
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--ac);
+  margin-top:2rem;
+  margin-bottom:.6rem;
+  padding-bottom:.3rem;
+  border-bottom:1px solid rgba(233,69,96,.25);
+}
+.content-area h3 {
+  font-size:1.15rem;
+  color:var(--gd);
+  margin-top:1.5rem;
+  margin-bottom:.4rem;
+}
+.content-area h4 { font-size:1rem; color:var(--bg); margin-top:1.2rem; }
+.content-area p { margin-bottom:.8rem; }
+.content-area a { color:var(--ac); text-decoration:none; border-bottom:1px solid rgba(233,69,96,.3); }
+.content-area a:hover { color:var(--gd); border-bottom-color:var(--gd); }
+.content-area strong { color:var(--bg); font-weight:700; }
+.content-area em { color:var(--bg2); }
+.content-area blockquote {
+  border-left:3px solid var(--gd);
+  padding:.8rem 1rem;
+  margin:.8rem 0;
+  background:rgba(196,163,90,.06);
+  color:var(--bg2);
+}
+.content-area blockquote strong { color:var(--bg); }
+.content-area ul, .content-area ol { padding-left:1.5rem; margin-bottom:.8rem; }
+.content-area li { margin-bottom:.3rem; }
+.content-area code {
+  font-family:'JetBrains Mono',monospace;
+  font-size:.88em;
+  background:var(--dk3);
+  padding:.15em .4em;
+  border-radius:3px;
+  color:var(--gd);
+}
+.content-area pre {
+  background:var(--dk2);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:1rem;
+  overflow-x:auto;
+  margin:.8rem 0;
+}
+.content-area pre code {
+  background:none;
+  padding:0;
+  font-size:.85rem;
+  color:var(--bg);
+}
+.content-area table {
+  width:100%;
+  border-collapse:collapse;
+  margin:.8rem 0;
+  font-size:.9rem;
+}
+.content-area th {
+  background:var(--dk3);
+  color:var(--gd);
+  font-weight:700;
+  padding:.5rem .7rem;
+  text-align:left;
+  border:1px solid var(--border);
+}
+.content-area td {
+  padding:.45rem .7rem;
+  border:1px solid var(--border);
+}
+.content-area tr:hover td { background:rgba(233,69,96,.04); }
+.content-area hr {
+  border:none;
+  border-top:1px solid var(--border);
+  margin:1.5rem 0;
+}
+.content-area img { max-width:100%; border-radius:6px; }
+
+/* ── Footer ── */
+.footer {
+  text-align:center;
+  padding:1.5rem;
+  color:var(--bg3);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.75rem;
+  border-top:1px solid var(--border);
+  margin-left:260px;
+}
+.footer a { color:var(--gd); text-decoration:none; }
+
+/* ── Loading ── */
+.loading {
+  text-align:center;
+  padding:4rem 2rem;
+  color:var(--bg3);
+  font-family:'JetBrains Mono',monospace;
+}
+.loading::after {
+  content:'';
+  display:inline-block;
+  width:20px; height:20px;
+  border:2px solid var(--border);
+  border-top-color:var(--ac);
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+  margin-left:.5rem;
+  vertical-align:middle;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* ── 404 ── */
+.not-found { text-align:center; padding:4rem 2rem; }
+.not-found h2 { color:var(--ac); margin-bottom:1rem; }
+
+/* ── Responsive ── */
+@media(max-width:768px) {
+  .sidebar { transform:translateX(-100%); }
+  .sidebar.open { transform:translateX(0); }
+  .menu-toggle { display:block; }
+  .main { margin-left:0; }
+  .footer { margin-left:0; }
+  .topbar { padding-left:3.5rem; }
+  .content-area { padding:1.5rem 1rem 3rem; }
+}
+
+/* ── Selection ── */
+::selection { background:rgba(233,69,96,.3); color:#fff; }
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:var(--dk); }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+</style>
+</head>
+<body>
+
+<!-- Mobile menu toggle -->
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <div class="sidebar-title" onclick="navigateTo('home')">
+    <span>[</span>FEWK<span>]</span> LOREBOOK
+  </div>
+
+  <div class="nav-section">Home</div>
+  <a class="nav-link" href="#home" data-page="home">FEWK LOREBOOK 포털</a>
+
+  <div class="nav-section">Book 0 — Quick Start</div>
+  <a class="nav-link" href="#book0/index" data-page="book0/index">Book 0 목차</a>
+  <a class="nav-link sub" href="#book0/world" data-page="book0/world">세계소개</a>
+  <a class="nav-link sub" href="#book0/fiction" data-page="book0/fiction">세 개의 밤 (단편)</a>
+  <a class="nav-link sub" href="#book0/rules" data-page="book0/rules">이지룰</a>
+  <a class="nav-link sub" href="#book0/jin" data-page="book0/jin">진(Jin)</a>
+  <a class="nav-link sub" href="#book0/soha" data-page="book0/soha">소화(Soha)</a>
+  <a class="nav-link sub" href="#book0/maboy" data-page="book0/maboy">마보이(Maboy)</a>
+  <a class="nav-link sub" href="#book0/hankan" data-page="book0/hankan">한칸(Hankan)</a>
+  <a class="nav-link sub" href="#book0/scenario" data-page="book0/scenario">레드 몽키즈 런</a>
+  <a class="nav-link sub" href="#book0/reference" data-page="book0/reference">빠른 참조</a>
+  <a class="nav-link sub" href="#book0/series" data-page="book0/series">시리즈 안내</a>
+
+  <div class="nav-section">Book 1~7 — 준비 중</div>
+  <span class="nav-link" style="color:var(--bg3);cursor:default;font-size:.8rem">Book 1: World Guide</span>
+  <span class="nav-link" style="color:var(--bg3);cursor:default;font-size:.8rem">Book 2: Player's Guide</span>
+  <span class="nav-link" style="color:var(--bg3);cursor:default;font-size:.8rem">Book 3: GM Guide</span>
+  <span class="nav-link" style="color:var(--bg3);cursor:default;font-size:.8rem">Book 4: Trade Catalog</span>
+  <span class="nav-link" style="color:var(--bg3);cursor:default;font-size:.8rem">Book 5: 계도감</span>
+  <span class="nav-link" style="color:var(--bg3);cursor:default;font-size:.8rem">Book 6: 존재도감</span>
+  <span class="nav-link" style="color:var(--bg3);cursor:default;font-size:.8rem">Book 7: 세력도감</span>
+</nav>
+
+<!-- Main content -->
+<div class="main">
+  <div class="topbar">
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="#home">FEWK</a> /
+    </div>
+  </div>
+  <div class="content-area" id="content">
+    <div class="loading">로딩 중</div>
+  </div>
 </div>
 
-<h2 style="color: #00f0ff; margin-bottom: 0.5rem;">최근 로어북 항목</h2>
-<div class="card-grid">
-  {% assign all_entries = site.lorebook | concat: site.characters | concat: site.factions | concat: site.locations | sort: 'date' | reverse %}
-  {% for item in all_entries limit: 6 %}
-  <a href="{{ item.url | relative_url }}" class="card">
-    {% if item.category %}<div class="card-tag">{{ item.category }}</div>{% endif %}
-    <h3 class="card-title">{{ item.title }}</h3>
-    {% if item.description %}<p class="card-desc">{{ item.description }}</p>{% endif %}
-    {% if item.tags %}
-    <div style="margin-top: 0.8rem;">
-      {% for tag in item.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
-    </div>
-    {% endif %}
-  </a>
-  {% endfor %}
-</div>
+<footer class="footer">
+  FEWK LOREBOOK &mdash; <a href="https://www.meje.kr" target="_blank">www.MEJE.kr</a>
+  &mdash; Created by 하얀용 WhtDrgon &mdash; &copy; 2026
+</footer>
+
+<!-- Markdown parser -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+// ── Wiki Engine ──
+
+// Page name labels for breadcrumbs
+const PAGE_LABELS = {
+  'home': 'FEWK LOREBOOK',
+  'book0/index': 'Book 0 목차',
+  'book0/world': '세계소개',
+  'book0/fiction': '세 개의 밤',
+  'book0/rules': '이지룰',
+  'book0/jin': '진(Jin)',
+  'book0/soha': '소화(Soha)',
+  'book0/maboy': '마보이(Maboy)',
+  'book0/hankan': '한칸(Hankan)',
+  'book0/scenario': '레드 몽키즈 런',
+  'book0/reference': '빠른 참조',
+  'book0/series': '시리즈 안내'
+};
+
+// Convert [[wikilinks]] to HTML links
+function convertWikilinks(md) {
+  // [[path|display text]]
+  md = md.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, function(_, path, text) {
+    return '[' + text + '](#' + path.trim() + ')';
+  });
+  // [[path]]
+  md = md.replace(/\[\[([^\]]+)\]\]/g, function(_, path) {
+    var label = PAGE_LABELS[path.trim()] || path.trim();
+    return '[' + label + '](#' + path.trim() + ')';
+  });
+  return md;
+}
+
+// Determine base URL for fetching .md files
+function getBaseUrl() {
+  var path = window.location.pathname;
+  if (path.endsWith('/')) return path;
+  return path.substring(0, path.lastIndexOf('/') + 1);
+}
+
+// Load and render a page
+async function loadPage(page) {
+  var content = document.getElementById('content');
+  var breadcrumb = document.getElementById('breadcrumb');
+
+  content.innerHTML = '<div class="loading">로딩 중</div>';
+
+  // Build breadcrumb
+  var parts = page.split('/');
+  var bc = '<a href="#home">FEWK</a>';
+  if (page !== 'home') {
+    if (parts[0] === 'book0') {
+      bc += ' / <a href="#book0/index">Book 0</a>';
+      if (parts[1] && parts[1] !== 'index') {
+        bc += ' / ' + (PAGE_LABELS[page] || parts[1]);
+      }
+    }
+  }
+  breadcrumb.innerHTML = bc;
+
+  // Highlight active nav
+  document.querySelectorAll('.nav-link').forEach(function(el) {
+    el.classList.toggle('active', el.dataset.page === page);
+  });
+
+  // Fetch markdown
+  var url = getBaseUrl() + page + '.md';
+  try {
+    var res = await fetch(url);
+    if (!res.ok) throw new Error(res.status);
+    var md = await res.text();
+
+    // Convert wikilinks then parse markdown
+    md = convertWikilinks(md);
+    content.innerHTML = marked.parse(md);
+
+    // Make all wiki links use navigateTo
+    content.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = a.getAttribute('href').substring(1);
+        navigateTo(target);
+      });
+    });
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+
+  } catch(e) {
+    content.innerHTML =
+      '<div class="not-found">' +
+      '<h2>페이지를 찾을 수 없습니다</h2>' +
+      '<p>' + page + '.md</p>' +
+      '<p><a href="#home">홈으로 돌아가기</a></p>' +
+      '</div>';
+  }
+
+  // Close mobile sidebar
+  document.querySelector('.sidebar').classList.remove('open');
+}
+
+// Navigate
+function navigateTo(page) {
+  window.location.hash = page;
+}
+
+// Hash change listener
+window.addEventListener('hashchange', function() {
+  var page = window.location.hash.substring(1) || 'home';
+  loadPage(page);
+});
+
+// Initial load
+(function() {
+  var page = window.location.hash.substring(1) || 'home';
+  loadPage(page);
+})();
+</script>
+
+</body>
+</html>

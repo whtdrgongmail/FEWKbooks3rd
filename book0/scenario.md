@@ -1,8 +1,8 @@
 # 4. 입문 시나리오 — "레드 몽키즈 런"
 
 > *FEWK LOREBOOK — Book 0: Quick Start*
-> 관련 항목: [[FEWK_Book0_이지룰]] | [[FEWK_Book0_빠른참조]] | [[FEWK_Book0_세나이트_단편]]
-> 캐릭터: [[FEWK_Book0_캐릭터_진]] | [[FEWK_Book0_캐릭터_소화]] | [[FEWK_Book0_캐릭터_마보이]] | [[FEWK_Book0_캐릭터_한칸]]
+> 관련 항목: [[book0/rules]] | [[book0/reference]] | [[book0/fiction]]
+> 캐릭터: [[book0/jin]] | [[book0/soha]] | [[book0/maboy]] | [[book0/hankan]]
 
 ---
 

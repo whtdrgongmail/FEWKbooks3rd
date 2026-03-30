@@ -1,7 +1,7 @@
 # 5. 빠른 참조표
 
 > *FEWK LOREBOOK — Book 0: Quick Start*
-> 관련 항목: [[FEWK_Book0_이지룰]]
+> 관련 항목: [[book0/rules]]
 
 ---
 
