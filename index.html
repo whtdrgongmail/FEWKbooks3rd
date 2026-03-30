@@ -354,8 +354,8 @@ const PAGE_LABELS = {
 
 // Convert [[wikilinks]] to HTML links
 function convertWikilinks(md) {
-  // [[path|display text]]
-  md = md.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, function(_, path, text) {
+  // [[path\|display text]] (escaped pipe in tables) and [[path|display text]]
+  md = md.replace(/\[\[([^\]\|\\]+)\\?\|([^\]]+)\]\]/g, function(_, path, text) {
     return '[' + text + '](#' + path.trim() + ')';
   });
   // [[path]]
