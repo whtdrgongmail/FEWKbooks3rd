@@ -233,16 +233,16 @@ body {
 .content-area .table-wrap {
   overflow-x:auto;
   margin:.8rem 0;
+  -webkit-overflow-scrolling:touch;
 }
 .content-area table {
   border-collapse:collapse;
   font-size:.9rem;
-  min-width:600px;
-  width:100%;
+  width:max-content;
+  min-width:100%;
 }
 .content-area td, .content-area th {
   word-break:keep-all;
-  white-space:nowrap;
 }
 .content-area th {
   background:var(--dk3);
