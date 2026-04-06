@@ -445,6 +445,8 @@ body {
       <a class="nav-link sub" href="#book7/relations" data-page="book7/relations">세력 관계도</a>
     </div>
   </details>
+
+  <a class="nav-link" href="#library/index" data-page="library/index" style="border-top:1px solid var(--border);padding-top:.6rem;margin-top:.3rem">단편 라이브러리 (100편)</a>
 </nav>
 
 <!-- Main content -->
@@ -543,7 +545,8 @@ const PAGE_LABELS = {
   'book7/runners': '러너의 세계',
   'book7/economy': '러너 경제',
   'book7/missions': '미션 제너레이터',
-  'book7/relations': '세력 관계도'
+  'book7/relations': '세력 관계도',
+  'library/index': '단편 라이브러리'
 };
 
 // Convert [[wikilinks]] to markdown links before table parsing
@@ -583,7 +586,8 @@ async function loadPage(page) {
   var bc = '<a href="#home">FEWK</a>';
   var BOOK_NAMES = {
     'book0': 'Book 0', 'book1': 'Book 1', 'book2': 'Book 2', 'book3': 'Book 3',
-    'book4': 'Book 4', 'book5': 'Book 5', 'book6': 'Book 6', 'book7': 'Book 7'
+    'book4': 'Book 4', 'book5': 'Book 5', 'book6': 'Book 6', 'book7': 'Book 7',
+    'library': '단편 라이브러리'
   };
   if (page !== 'home') {
     var bookKey = parts[0];
