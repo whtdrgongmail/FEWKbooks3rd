@@ -3,96 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FEWK LOREBOOK</title>
+<title>FEWK: 동방의 하얀 나라 — 공식 룰북 샘플</title>
+<meta name="description" content="FEWK(Far East White Kingdom) 제3판 — 사이버펑크·오컬트 TRPG 월드북·코어 룰북 온라인 샘플. 2026 텀블벅 크라우드펀딩 예정.">
+<meta property="og:title" content="FEWK: 동방의 하얀 나라 — 공식 룰북 샘플">
+<meta property="og:description" content="2021년 시작된 FEWK 세계관의 5년 여정. 제3판 월드북·코어 룰북 온라인 샘플.">
+<meta property="og:type" content="website">
+<!-- og:image 는 GitHub Pages 배포 확정 후 추가 (예: https://whtdrgon.github.io/FEWKbooks/assets/img/og.png) -->
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
+/* ═══════════════════════════════════════════
+   FEWK LOREBOOK 3rd — Dual Mode (Light/Dark)
+   ═══════════════════════════════════════════ */
+
+/* Light mode (default) — "백공" 모티프 */
 :root {
-  --dk: #1A1A2E;
-  --dk2: #16162B;
-  --dk3: #1F1F3A;
-  --dk4: #252545;
-  --ac: #E94560;
-  --gd: #C4A35A;
-  --bg: #F0EDE8;
-  --bg2: #A09890;
-  --bg3: #6B6558;
-  --border: #2A2A4A;
+  --bg: #F7F5F0;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #FDFBF6;
+  --bg-hover: #F0ECE4;
+  --text: #1F1F2E;
+  --text-muted: #5A5663;
+  --text-subtle: #8B8590;
+  --border: #E0DCD2;
+  --border-strong: #C4BFB2;
+  --accent: #B91C3A;
+  --accent-soft: rgba(185, 28, 58, 0.08);
+  --accent-border: rgba(185, 28, 58, 0.25);
+  --gold: #9A7B28;
+  --gold-soft: rgba(154, 123, 40, 0.1);
+  --code-bg: #F0ECE4;
+  --blockquote-bg: rgba(154, 123, 40, 0.05);
 }
+
+/* Dark mode — "흑공" 모티프 */
+html[data-theme="dark"] {
+  --bg: #1A1A2E;
+  --bg-surface: #16162B;
+  --bg-elevated: #1F1F3A;
+  --bg-hover: #252545;
+  --text: #F0EDE8;
+  --text-muted: #A09890;
+  --text-subtle: #6B6558;
+  --border: #2A2A4A;
+  --border-strong: #3A3A5A;
+  --accent: #E94560;
+  --accent-soft: rgba(233, 69, 96, 0.1);
+  --accent-border: rgba(233, 69, 96, 0.3);
+  --gold: #C4A35A;
+  --gold-soft: rgba(196, 163, 90, 0.1);
+  --code-bg: #1F1F3A;
+  --blockquote-bg: rgba(196, 163, 90, 0.06);
+}
+
 * { margin:0; padding:0; box-sizing:border-box; }
 html { font-size:16px; scroll-behavior:smooth; }
 body {
   font-family:'Noto Sans KR',sans-serif;
-  background:var(--dk);
-  color:var(--bg);
+  background:var(--bg);
+  color:var(--text);
   line-height:1.7;
   min-height:100vh;
+  transition: background-color .3s, color .3s;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* ── Sidebar ── */
 .sidebar {
-  width:260px;
-  min-height:100vh;
-  background:var(--dk2);
+  width:280px;
+  height:100vh;
+  background:var(--bg-surface);
   border-right:1px solid var(--border);
-  padding:1.5rem 0;
+  padding:1.5rem 0 2rem;
   position:fixed;
   top:0; left:0;
   overflow-y:auto;
   z-index:100;
-  transition:transform .3s;
+  transition:transform .3s, background-color .3s, border-color .3s;
+}
+.sidebar-header {
+  padding:0 1.2rem 1rem;
+  border-bottom:1px solid var(--border);
+  margin-bottom:.5rem;
 }
 .sidebar-title {
   font-family:'JetBrains Mono',monospace;
-  font-size:1.1rem;
+  font-size:1rem;
   font-weight:700;
-  color:var(--ac);
-  letter-spacing:.1em;
-  padding:0 1.2rem 1rem;
+  color:var(--accent);
+  letter-spacing:.08em;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:.3rem;
+}
+.sidebar-title span.brackets { color:var(--gold); }
+.sidebar-subtitle {
+  font-size:.72rem;
+  color:var(--text-subtle);
+  font-family:'JetBrains Mono',monospace;
+  margin-top:.25rem;
+  letter-spacing:.05em;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  padding:.4rem .7rem;
+  margin:.5rem 1rem;
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:6px;
+  cursor:pointer;
+  font-size:.75rem;
+  color:var(--text-muted);
+  font-family:'JetBrains Mono',monospace;
+  transition: all .2s;
+  width:calc(100% - 2rem);
+  justify-content:center;
+}
+.theme-toggle:hover {
+  background:var(--bg-hover);
+  color:var(--accent);
+}
+.theme-toggle .icon { font-size: 1rem; }
+
+/* Search */
+.search-box {
+  margin:.5rem 1rem 1rem;
+  position:relative;
+}
+.search-input {
+  width:100%;
+  padding:.5rem .7rem;
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:6px;
+  color:var(--text);
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:.85rem;
+  outline:none;
+}
+.search-input:focus {
+  border-color:var(--accent);
+  background:var(--bg-surface);
+}
+.search-input::placeholder { color:var(--text-subtle); }
+.search-results {
+  display:none;
+  position:absolute;
+  top:calc(100% + 4px);
+  left:0; right:0;
+  background:var(--bg-surface);
+  border:1px solid var(--border);
+  border-radius:6px;
+  max-height:320px;
+  overflow-y:auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  z-index:150;
+}
+.search-results.open { display:block; }
+.search-result {
+  padding:.45rem .7rem;
   border-bottom:1px solid var(--border);
   cursor:pointer;
+  font-size:.82rem;
+  transition:background .15s;
 }
-.sidebar-title span { color:var(--gd); }
-.nav-section {
-  padding:.8rem 0 .3rem;
-  font-family:'JetBrains Mono',monospace;
+.search-result:last-child { border-bottom:none; }
+.search-result:hover { background:var(--bg-hover); color:var(--accent); }
+.search-result .path {
   font-size:.7rem;
-  color:var(--bg3);
+  color:var(--text-subtle);
+  display:block;
+  margin-top:.15rem;
+  font-family:'JetBrains Mono',monospace;
+}
+.search-empty {
+  padding:.8rem;
+  text-align:center;
+  color:var(--text-subtle);
+  font-size:.8rem;
+}
+
+.nav-section {
+  padding:.8rem 1.2rem .25rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;
+  color:var(--text-subtle);
   text-transform:uppercase;
   letter-spacing:.12em;
-  padding-left:1.2rem;
 }
 .nav-link {
   display:block;
-  padding:.35rem 1.2rem .35rem 1.5rem;
-  color:var(--bg2);
+  padding:.3rem 1.2rem .3rem 1.5rem;
+  color:var(--text-muted);
   text-decoration:none;
-  font-size:.88rem;
-  transition:all .2s;
+  font-size:.86rem;
+  transition:all .15s;
   border-left:2px solid transparent;
 }
 .nav-link:hover {
-  color:var(--bg);
-  background:rgba(233,69,96,.06);
-  border-left-color:var(--ac);
+  color:var(--text);
+  background:var(--accent-soft);
+  border-left-color:var(--accent);
 }
 .nav-link.active {
-  color:var(--ac);
-  background:rgba(233,69,96,.1);
-  border-left-color:var(--ac);
+  color:var(--accent);
+  background:var(--accent-soft);
+  border-left-color:var(--accent);
   font-weight:500;
 }
-.nav-link.sub { padding-left:2.2rem; font-size:.82rem; }
+.nav-link.sub { padding-left:2.3rem; font-size:.8rem; }
+.nav-link.sub-sub { padding-left:3rem; font-size:.78rem; color:var(--text-subtle); }
 
-/* ── Collapsible book sections ── */
-.nav-book {
-  border-bottom:1px solid rgba(42,42,74,.5);
-}
+.nav-book { border-bottom:1px solid var(--border); }
 .nav-book summary {
-  padding:.6rem 1.2rem .4rem;
+  padding:.55rem 1.2rem .4rem;
   font-family:'JetBrains Mono',monospace;
   font-size:.72rem;
-  color:var(--bg3);
+  color:var(--text-muted);
   text-transform:uppercase;
   letter-spacing:.1em;
   cursor:pointer;
@@ -101,21 +238,30 @@ body {
   align-items:center;
   gap:.4rem;
   user-select:none;
+  font-weight:600;
 }
 .nav-book summary::-webkit-details-marker { display:none; }
 .nav-book summary::before {
   content:'▸';
   font-size:.7rem;
-  color:var(--bg3);
+  color:var(--text-subtle);
   transition:transform .2s;
   display:inline-block;
 }
 .nav-book[open] summary::before {
   transform:rotate(90deg);
+  color:var(--accent);
 }
-.nav-book summary:hover { color:var(--bg2); }
-.nav-book .nav-children {
-  padding-bottom:.3rem;
+.nav-book summary:hover { color:var(--accent); }
+.nav-book .nav-children { padding-bottom:.3rem; }
+
+.nav-part {
+  padding:.3rem 1.2rem .2rem 1.5rem;
+  font-size:.75rem;
+  font-weight:600;
+  color:var(--gold);
+  font-family:'JetBrains Mono',monospace;
+  letter-spacing:.03em;
 }
 
 /* ── Mobile toggle ── */
@@ -124,23 +270,25 @@ body {
   position:fixed;
   top:.8rem; left:.8rem;
   z-index:200;
-  background:var(--dk2);
+  background:var(--bg-surface);
   border:1px solid var(--border);
-  color:var(--ac);
+  color:var(--accent);
   font-size:1.3rem;
-  padding:.4rem .6rem;
+  padding:.4rem .65rem;
   cursor:pointer;
-  border-radius:4px;
+  border-radius:6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
 /* ── Main ── */
 .main {
-  margin-left:260px;
+  margin-left:280px;
   min-height:100vh;
+  transition: margin-left .3s;
 }
 .topbar {
-  background:rgba(22,22,43,.95);
-  backdrop-filter:blur(8px);
+  background:var(--bg-surface);
+  backdrop-filter: blur(8px);
   border-bottom:1px solid var(--border);
   padding:.6rem 2rem;
   display:flex;
@@ -153,14 +301,31 @@ body {
 .breadcrumb {
   font-family:'JetBrains Mono',monospace;
   font-size:.8rem;
-  color:var(--bg3);
+  color:var(--text-subtle);
+  flex:1;
 }
-.breadcrumb a { color:var(--gd); text-decoration:none; }
-.breadcrumb a:hover { color:var(--ac); }
+.breadcrumb a { color:var(--gold); text-decoration:none; }
+.breadcrumb a:hover { color:var(--accent); }
+
+.comment-btn {
+  padding:.35rem .7rem;
+  background:var(--accent-soft);
+  border:1px solid var(--accent-border);
+  color:var(--accent);
+  border-radius:5px;
+  font-size:.78rem;
+  font-family:'JetBrains Mono',monospace;
+  cursor:pointer;
+  text-decoration:none;
+  transition:all .2s;
+}
+.comment-btn:hover {
+  background:var(--accent);
+  color:#fff;
+}
 
 .content-area {
-  flex:1;
-  max-width:1100px;
+  max-width:1000px;
   padding:2rem 2.5rem 4rem;
 }
 
@@ -168,68 +333,80 @@ body {
 .content-area h1 {
   font-size:2rem;
   font-weight:700;
-  color:var(--bg);
-  margin-bottom:.5rem;
+  color:var(--text);
+  margin-bottom:.8rem;
   padding-bottom:.5rem;
-  border-bottom:2px solid var(--ac);
+  border-bottom:2px solid var(--accent);
 }
 .content-area h2 {
   font-size:1.4rem;
   font-weight:700;
-  color:var(--ac);
+  color:var(--accent);
   margin-top:2rem;
   margin-bottom:.6rem;
   padding-bottom:.3rem;
-  border-bottom:1px solid rgba(233,69,96,.25);
+  border-bottom:1px solid var(--accent-border);
 }
 .content-area h3 {
   font-size:1.15rem;
-  color:var(--gd);
+  color:var(--gold);
   margin-top:1.5rem;
   margin-bottom:.4rem;
+  font-weight:700;
 }
-.content-area h4 { font-size:1rem; color:var(--bg); margin-top:1.2rem; }
-.content-area p { margin-bottom:.8rem; }
-.content-area a { color:var(--ac); text-decoration:none; border-bottom:1px solid rgba(233,69,96,.3); }
-.content-area a:hover { color:var(--gd); border-bottom-color:var(--gd); }
-.content-area strong { color:var(--bg); font-weight:700; }
-.content-area em { color:var(--bg2); }
+.content-area h4 {
+  font-size:1rem;
+  color:var(--text);
+  margin-top:1.2rem;
+  margin-bottom:.4rem;
+  font-weight:700;
+}
+.content-area p { margin-bottom:.85rem; }
+.content-area a {
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px solid var(--accent-border);
+}
+.content-area a:hover { color:var(--gold); border-bottom-color:var(--gold); }
+.content-area strong { color:var(--text); font-weight:700; }
+.content-area em { color:var(--text-muted); }
 .content-area blockquote {
-  border-left:3px solid var(--gd);
+  border-left:3px solid var(--gold);
   padding:.8rem 1rem;
-  margin:.8rem 0;
-  background:rgba(196,163,90,.06);
-  color:var(--bg2);
+  margin:.9rem 0;
+  background:var(--blockquote-bg);
+  color:var(--text-muted);
+  border-radius: 0 4px 4px 0;
 }
-.content-area blockquote strong { color:var(--bg); }
-.content-area ul, .content-area ol { padding-left:1.5rem; margin-bottom:.8rem; }
+.content-area blockquote strong { color:var(--text); }
+.content-area ul, .content-area ol { padding-left:1.5rem; margin-bottom:.85rem; }
 .content-area li { margin-bottom:.3rem; }
 .content-area code {
   font-family:'JetBrains Mono',monospace;
   font-size:.88em;
-  background:var(--dk3);
+  background:var(--code-bg);
   padding:.15em .4em;
   border-radius:3px;
-  color:var(--gd);
+  color:var(--gold);
 }
 .content-area pre {
-  background:var(--dk2);
+  background:var(--bg-elevated);
   border:1px solid var(--border);
   border-radius:6px;
   padding:1rem;
   overflow-x:auto;
-  margin:.8rem 0;
+  margin:.9rem 0;
 }
 .content-area pre code {
   background:none;
   padding:0;
   font-size:.85rem;
-  color:var(--bg);
+  color:var(--text);
 }
 .content-area .table-wrap {
   overflow-x:auto;
-  margin:.8rem 0;
-  -webkit-overflow-scrolling:touch;
+  margin:.9rem 0;
+  border-radius:6px;
 }
 .content-area table {
   border-collapse:collapse;
@@ -237,224 +414,229 @@ body {
   width:max-content;
   min-width:100%;
 }
-.content-area td, .content-area th {
-  word-break:keep-all;
-}
+.content-area td, .content-area th { word-break:keep-all; }
 .content-area th {
-  background:var(--dk3);
-  color:var(--gd);
+  background:var(--bg-elevated);
+  color:var(--gold);
   font-weight:700;
   padding:.5rem .7rem;
   text-align:left;
   border:1px solid var(--border);
 }
 .content-area td {
-  padding:.45rem .7rem;
+  padding:.5rem .7rem;
   border:1px solid var(--border);
 }
-.content-area tr:hover td { background:rgba(233,69,96,.04); }
+.content-area tr:hover td { background:var(--accent-soft); }
 .content-area hr {
   border:none;
   border-top:1px solid var(--border);
   margin:1.5rem 0;
 }
-.content-area img { max-width:100%; border-radius:6px; }
+.content-area img {
+  max-width:100%;
+  border-radius:6px;
+  display:block;
+  margin:1rem auto;
+}
+
+/* ── Hero (home page) ── */
+.hero {
+  background: linear-gradient(135deg, var(--accent-soft), var(--gold-soft));
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  text-align:center;
+  border: 1px solid var(--accent-border);
+}
+.hero h1 {
+  border:none;
+  font-size:2.2rem;
+  padding-bottom:0;
+  margin-bottom:.5rem;
+}
+.hero .subtitle {
+  font-family:'JetBrains Mono',monospace;
+  font-size:.9rem;
+  color:var(--text-muted);
+  margin-top:.3rem;
+}
 
 /* ── Footer ── */
 .footer {
   text-align:center;
   padding:1.5rem;
-  color:var(--bg3);
+  color:var(--text-subtle);
   font-family:'JetBrains Mono',monospace;
   font-size:.75rem;
   border-top:1px solid var(--border);
-  margin-left:260px;
+  margin-left:280px;
+  transition: margin-left .3s;
 }
-.footer a { color:var(--gd); text-decoration:none; }
+.footer a { color:var(--gold); text-decoration:none; }
+.footer a:hover { color:var(--accent); }
 
-/* ── Loading ── */
-.loading {
-  text-align:center;
-  padding:4rem 2rem;
-  color:var(--bg3);
-  font-family:'JetBrains Mono',monospace;
-}
+/* ── Loading & Not Found ── */
+.loading { text-align:center; padding:4rem 2rem; color:var(--text-subtle); }
 .loading::after {
   content:'';
   display:inline-block;
   width:20px; height:20px;
   border:2px solid var(--border);
-  border-top-color:var(--ac);
+  border-top-color:var(--accent);
   border-radius:50%;
   animation:spin .8s linear infinite;
   margin-left:.5rem;
   vertical-align:middle;
 }
 @keyframes spin { to { transform:rotate(360deg); } }
-
-/* ── 404 ── */
 .not-found { text-align:center; padding:4rem 2rem; }
-.not-found h2 { color:var(--ac); margin-bottom:1rem; }
+.not-found h2 { color:var(--accent); margin-bottom:1rem; }
+
+/* ── Comment Modal ── */
+.modal-overlay {
+  display:none;
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.5);
+  z-index:300;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+.modal-overlay.open { display:flex; }
+.modal {
+  background:var(--bg-surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  max-width:500px;
+  width:100%;
+  padding:1.5rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,.2);
+}
+.modal h3 {
+  color:var(--accent);
+  margin-bottom:.5rem;
+  font-size:1.1rem;
+}
+.modal p {
+  font-size:.85rem;
+  color:var(--text-muted);
+  margin-bottom:1rem;
+}
+.modal textarea {
+  width:100%;
+  min-height:120px;
+  padding:.7rem;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:6px;
+  color:var(--text);
+  font-family: inherit;
+  font-size:.9rem;
+  resize:vertical;
+  outline:none;
+}
+.modal textarea:focus { border-color:var(--accent); }
+.modal-actions {
+  display:flex;
+  gap:.5rem;
+  justify-content:flex-end;
+  margin-top:1rem;
+}
+.btn {
+  padding:.45rem .9rem;
+  border-radius:5px;
+  font-size:.85rem;
+  cursor:pointer;
+  border:1px solid var(--border);
+  background:var(--bg-elevated);
+  color:var(--text);
+  font-family:inherit;
+  transition:all .2s;
+}
+.btn:hover { background:var(--bg-hover); }
+.btn.primary {
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--accent);
+}
+.btn.primary:hover { background:var(--gold); border-color:var(--gold); }
 
 /* ── Responsive ── */
-@media(max-width:768px) {
+@media(max-width:900px) {
   .sidebar { transform:translateX(-100%); }
-  .sidebar.open { transform:translateX(0); }
+  .sidebar.open { transform:translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.15); }
   .menu-toggle { display:block; }
   .main { margin-left:0; }
   .footer { margin-left:0; }
   .topbar { padding-left:3.5rem; }
-  .content-area { padding:1.5rem 1rem 3rem; }
+  .content-area { padding:1.5rem 1.2rem 3rem; }
+  .hero { padding:1.5rem 1rem; }
+  .hero h1 { font-size:1.7rem; }
 }
 
-/* ── Selection ── */
-::selection { background:rgba(233,69,96,.3); color:#fff; }
-::-webkit-scrollbar { width:6px; }
-::-webkit-scrollbar-track { background:var(--dk); }
-::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+@media(max-width:500px) {
+  .content-area h1 { font-size:1.5rem; }
+  .content-area h2 { font-size:1.2rem; }
+  .content-area h3 { font-size:1.05rem; }
+}
+
+/* ── Selection & Scrollbar ── */
+::selection { background:var(--accent-soft); color:var(--accent); }
+::-webkit-scrollbar { width:8px; height:8px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
+::-webkit-scrollbar-thumb:hover { background:var(--border-strong); }
+
+/* Print */
+@media print {
+  .sidebar, .topbar, .menu-toggle, .footer { display:none; }
+  .main { margin-left:0; }
+  .content-area { max-width:none; padding:0; }
+}
 </style>
 </head>
 <body>
 
 <!-- Mobile menu toggle -->
-<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</button>
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="메뉴">☰</button>
 
 <!-- Sidebar -->
 <nav class="sidebar">
-  <div class="sidebar-title" onclick="navigateTo('home')">
-    <span>[</span>FEWK<span>]</span> LOREBOOK
+  <div class="sidebar-header">
+    <div class="sidebar-title" onclick="navigateTo('home')">
+      <span class="brackets">[</span>FEWK<span class="brackets">]</span> LOREBOOK
+    </div>
+    <div class="sidebar-subtitle">동방의 하얀 나라 · 제3판 샘플</div>
   </div>
 
-  <a class="nav-link" href="#home" data-page="home" style="border-bottom:1px solid var(--border);padding-bottom:.5rem;margin-bottom:.3rem">FEWK LOREBOOK 포털</a>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="테마 전환">
+    <span class="icon" id="themeIcon">🌙</span>
+    <span id="themeLabel">다크 모드</span>
+  </button>
 
-  <details class="nav-book" open>
-    <summary>Book 0 — Quick Start</summary>
-    <div class="nav-children">
-      <a class="nav-link" href="#book0/index" data-page="book0/index">목차</a>
-      <a class="nav-link sub" href="#book0/world" data-page="book0/world">세계소개</a>
-      <a class="nav-link sub" href="#book0/fiction" data-page="book0/fiction">세 개의 밤</a>
-      <a class="nav-link sub" href="#book0/rules" data-page="book0/rules">이지룰</a>
-      <a class="nav-link sub" href="#book0/jin" data-page="book0/jin">진(Jin)</a>
-      <a class="nav-link sub" href="#book0/soha" data-page="book0/soha">소화(Soha)</a>
-      <a class="nav-link sub" href="#book0/maboy" data-page="book0/maboy">마보이(Maboy)</a>
-      <a class="nav-link sub" href="#book0/hankan" data-page="book0/hankan">한칸(Hankan)</a>
-      <a class="nav-link sub" href="#book0/scenario" data-page="book0/scenario">레드 몽키즈 런</a>
-      <a class="nav-link sub" href="#book0/reference" data-page="book0/reference">빠른 참조</a>
-      <a class="nav-link sub" href="#book0/series" data-page="book0/series">시리즈 안내</a>
-    </div>
-  </details>
+  <div class="search-box">
+    <input type="text" class="search-input" id="searchInput" placeholder="검색 (제목·용어)" aria-label="검색">
+    <div class="search-results" id="searchResults"></div>
+  </div>
 
-  <details class="nav-book">
-    <summary>Book 1 — World Guide</summary>
-    <div class="nav-children">
-      <a class="nav-link" href="#book1/index" data-page="book1/index">목차</a>
-      <a class="nav-link sub" href="#book1/ch1-welcome" data-page="book1/ch1-welcome">1장. 환영합니다</a>
-      <a class="nav-link sub" href="#book1/ch2-laws" data-page="book1/ch2-laws">2장. 세계의 법칙</a>
-      <a class="nav-link sub" href="#book1/ch3-history" data-page="book1/ch3-history">3장. 세계의 역사</a>
-      <a class="nav-link sub" href="#book1/ch4-geography" data-page="book1/ch4-geography">4장. 지리와 도시</a>
-      <a class="nav-link sub" href="#book1/ch5-society" data-page="book1/ch5-society">5장. 사회와 문명</a>
-      <a class="nav-link sub" href="#book1/ch6-factions" data-page="book1/ch6-factions">6장. 세력과 인물</a>
-      <a class="nav-link sub" href="#book1/glossary" data-page="book1/glossary">글로서리</a>
-      <a class="nav-link sub" href="#book1/anthology" data-page="book1/anthology">단편 앤솔로지</a>
-    </div>
-  </details>
+  <a class="nav-link" href="#home" data-page="home" style="border-top:1px solid var(--border);padding-top:.6rem;padding-bottom:.5rem;font-weight:500;color:var(--accent)">FEWK 소개·홈</a>
+  <a class="nav-link" href="#roadmap" data-page="roadmap" style="font-size:.82rem;">로드맵</a>
+  <a class="nav-link" href="#license" data-page="license" style="font-size:.82rem;border-bottom:1px solid var(--border);padding-bottom:.5rem;margin-bottom:.3rem;">라이선스 (FWOL)</a>
 
-  <details class="nav-book">
-    <summary>Book 2 — Player's Guide</summary>
-    <div class="nav-children">
-      <a class="nav-link" href="#book2/index" data-page="book2/index">목차</a>
-      <a class="nav-link sub" href="#book2/ch7-creation" data-page="book2/ch7-creation">7장. 캐릭터 생성</a>
-      <a class="nav-link sub" href="#book2/ch8-classes" data-page="book2/ch8-classes">8장. 클래스 상세</a>
-      <a class="nav-link sub" href="#book2/ch9-skills" data-page="book2/ch9-skills">9장. 인터렉션과 스킬</a>
-      <a class="nav-link sub" href="#book2/ch10-equipment" data-page="book2/ch10-equipment">10장. 장비와 임플란트</a>
-      <a class="nav-link sub" href="#book2/ch11-combat" data-page="book2/ch11-combat">11장. 전투</a>
-      <a class="nav-link sub" href="#book2/ch12-signal" data-page="book2/ch12-signal">12장. 신호연결과 해킹</a>
-      <a class="nav-link sub" href="#book2/ch13-dimensions" data-page="book2/ch13-dimensions">13장. 차원이동과 러닝</a>
-      <a class="nav-link sub" href="#book2/sheet" data-page="book2/sheet">캐릭터 시트</a>
-    </div>
-  </details>
+  <!-- Navigation generated by JS -->
+  <div id="navMenu"></div>
 
-  <details class="nav-book">
-    <summary>Book 3 — GM Guide</summary>
-    <div class="nav-children">
-      <a class="nav-link" href="#book3/index" data-page="book3/index">목차</a>
-      <a class="nav-link sub" href="#book3/ch14-mission" data-page="book3/ch14-mission">14장. 미션 설계</a>
-      <a class="nav-link sub" href="#book3/ch15-city" data-page="book3/ch15-city">15장. 도시와 구역 생성</a>
-      <a class="nav-link sub" href="#book3/ch16-npc" data-page="book3/ch16-npc">16장. NPC와 적 데이터</a>
-      <a class="nav-link sub" href="#book3/ch17-scenarios" data-page="book3/ch17-scenarios">17장. 시나리오 3편</a>
-      <a class="nav-link sub" href="#book3/ch17-campaign" data-page="book3/ch17-campaign">17장b. 캠페인 아크</a>
-      <a class="nav-link sub" href="#book3/appendix" data-page="book3/appendix">부록: GM 도구</a>
-    </div>
-  </details>
-
-  <details class="nav-book">
-    <summary>Book 4 — 통합상거래 안내서</summary>
-    <div class="nav-children">
-      <a class="nav-link" href="#book4/index" data-page="book4/index">목차</a>
-      <a class="nav-link sub" href="#book4/power" data-page="book4/power">① 동력과 에너지</a>
-      <a class="nav-link sub" href="#book4/daily" data-page="book4/daily">② 일상 장비</a>
-      <a class="nav-link sub" href="#book4/medical" data-page="book4/medical">③ 의료·생체</a>
-      <a class="nav-link sub" href="#book4/weapons" data-page="book4/weapons">④ 무기</a>
-      <a class="nav-link sub" href="#book4/armor" data-page="book4/armor">⑤ 방어구</a>
-      <a class="nav-link sub" href="#book4/implants" data-page="book4/implants">⑥ 임플란트</a>
-      <a class="nav-link sub" href="#book4/vehicles" data-page="book4/vehicles">⑦ 탈것</a>
-      <a class="nav-link sub" href="#book4/sinki" data-page="book4/sinki">⑧ 신기·무속</a>
-      <a class="nav-link sub" href="#book4/dimension" data-page="book4/dimension">⑨ 차원이동 장비</a>
-      <a class="nav-link sub" href="#book4/services" data-page="book4/services">⑩ 서비스</a>
-    </div>
-  </details>
-
-  <details class="nav-book">
-    <summary>Book 5 — 계도감</summary>
-    <div class="nav-children">
-      <a class="nav-link" href="#book5/index" data-page="book5/index">목차</a>
-      <a class="nav-link sub" href="#book5/understanding" data-page="book5/understanding">계의 이해</a>
-      <a class="nav-link sub" href="#book5/generation" data-page="book5/generation">계 생성 규칙</a>
-      <a class="nav-link sub" href="#book5/physical" data-page="book5/physical">물질계: 서울</a>
-      <a class="nav-link sub" href="#book5/bunker" data-page="book5/bunker">벙커계</a>
-      <a class="nav-link sub" href="#book5/catalog-natural" data-page="book5/catalog-natural">자연계 카탈로그</a>
-      <a class="nav-link sub" href="#book5/catalog-artificial" data-page="book5/catalog-artificial">인공계 카탈로그</a>
-      <a class="nav-link sub" href="#book5/uncharted" data-page="book5/uncharted">미탐험계 5종</a>
-      <a class="nav-link sub" href="#book5/random" data-page="book5/random">랜덤 계 20개</a>
-    </div>
-  </details>
-
-  <details class="nav-book">
-    <summary>Book 6 — 존재도감</summary>
-    <div class="nav-children">
-      <a class="nav-link" href="#book6/index" data-page="book6/index">목차</a>
-      <a class="nav-link sub" href="#book6/classification" data-page="book6/classification">존재의 분류</a>
-      <a class="nav-link sub" href="#book6/tenebre" data-page="book6/tenebre">흑공 존재</a>
-      <a class="nav-link sub" href="#book6/artificial" data-page="book6/artificial">인공 존재</a>
-      <a class="nav-link sub" href="#book6/modified" data-page="book6/modified">변형 인간</a>
-      <a class="nav-link sub" href="#book6/classes" data-page="book6/classes">직업과 클래스</a>
-      <a class="nav-link sub" href="#book6/npc-gallery" data-page="book6/npc-gallery">NPC 갤러리</a>
-    </div>
-  </details>
-
-  <details class="nav-book">
-    <summary>Book 7 — 세력도감</summary>
-    <div class="nav-children">
-      <a class="nav-link" href="#book7/index" data-page="book7/index">목차</a>
-      <a class="nav-link sub" href="#book7/embassies" data-page="book7/embassies">대사국</a>
-      <a class="nav-link sub" href="#book7/corporations" data-page="book7/corporations">(주)기업</a>
-      <a class="nav-link sub" href="#book7/guilds" data-page="book7/guilds">길드와 조직</a>
-      <a class="nav-link sub" href="#book7/runners" data-page="book7/runners">러너의 세계</a>
-      <a class="nav-link sub" href="#book7/economy" data-page="book7/economy">러너 경제</a>
-      <a class="nav-link sub" href="#book7/missions" data-page="book7/missions">미션 제너레이터</a>
-      <a class="nav-link sub" href="#book7/relations" data-page="book7/relations">세력 관계도</a>
-    </div>
-  </details>
-
-  <a class="nav-link" href="#library/index" data-page="library/index" style="border-top:1px solid var(--border);padding-top:.6rem;margin-top:.3rem">단편 라이브러리 (100편)</a>
 </nav>
 
 <!-- Main content -->
 <div class="main">
   <div class="topbar">
     <div class="breadcrumb" id="breadcrumb">
-      <a href="#home">FEWK</a> /
+      <a href="#home">FEWK</a>
     </div>
+    <button class="comment-btn" onclick="openCommentModal()" title="편집자에게 한마디">💬 댓글</button>
   </div>
   <div class="content-area" id="content">
     <div class="loading">로딩 중</div>
@@ -462,212 +644,525 @@ body {
 </div>
 
 <footer class="footer">
-  FEWK LOREBOOK &mdash; <a href="https://www.meje.kr" target="_blank">www.MEJE.kr</a>
-  &mdash; Created by 하얀용 WhtDrgon &mdash; &copy; 2026
+  FEWK LOREBOOK 제3판 샘플 &mdash;
+  Universe Designer 하얀용 WhtDrgon (김동은 Kim Dongeun) &mdash;
+  Since 2021.10.31 &mdash;
+  &copy; 2021–2026 Kim Dongeun. 생산 기술 &copy; MEJE Works Corp.
 </footer>
+
+<!-- Comment Modal -->
+<div class="modal-overlay" id="commentModal" onclick="if(event.target===this)closeCommentModal()">
+  <div class="modal">
+    <h3>편집자에게 한마디</h3>
+    <p>이 페이지를 읽으신 소감·오탈자·의견을 편집자에게 보내실 수 있습니다. "보내기"를 누르시면 기본 메일 앱이 열립니다.</p>
+    <textarea id="commentText" placeholder="여기에 남기실 내용을 적어주세요..."></textarea>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeCommentModal()">취소</button>
+      <button class="btn primary" onclick="sendComment()">보내기</button>
+    </div>
+  </div>
+</div>
 
 <!-- Markdown parser -->
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <script>
-// ── Wiki Engine ──
+/* ═══════════════════════════════════════════════
+   FEWK LOREBOOK 3rd — Runtime
+   ═══════════════════════════════════════════════ */
 
-// Page name labels for breadcrumbs
-const PAGE_LABELS = {
-  'home': 'FEWK LOREBOOK',
-  'book0/index': 'Book 0 목차',
-  'book0/world': '세계소개',
-  'book0/fiction': '세 개의 밤',
-  'book0/rules': '이지룰',
-  'book0/jin': '진(Jin)',
-  'book0/soha': '소화(Soha)',
-  'book0/maboy': '마보이(Maboy)',
-  'book0/hankan': '한칸(Hankan)',
-  'book0/scenario': '레드 몽키즈 런',
-  'book0/reference': '빠른 참조',
-  'book0/series': '시리즈 안내',
-  'book1/index': 'Book 1 목차',
-  'book1/ch1-welcome': '1장. 환영합니다',
-  'book1/ch2-laws': '2장. 세계의 법칙',
-  'book1/ch3-history': '3장. 세계의 역사',
-  'book1/ch4-geography': '4장. 지리와 도시',
-  'book1/ch5-society': '5장. 사회와 문명',
-  'book1/ch6-factions': '6장. 세력과 인물',
-  'book1/glossary': '글로서리',
-  'book1/anthology': '단편 앤솔로지',
-  'book2/index': 'Book 2 목차',
-  'book2/ch7-creation': '7장. 캐릭터 생성',
-  'book2/ch8-classes': '8장. 클래스 상세',
-  'book2/ch9-skills': '9장. 인터렉션과 스킬',
-  'book2/ch10-equipment': '10장. 장비와 임플란트',
-  'book2/ch11-combat': '11장. 전투',
-  'book2/ch12-signal': '12장. 신호연결과 해킹',
-  'book2/ch13-dimensions': '13장. 차원이동과 러닝',
-  'book2/sheet': '캐릭터 시트',
-  'book3/index': 'Book 3 목차',
-  'book3/ch14-mission': '14장. 미션 설계',
-  'book3/ch15-city': '15장. 도시와 구역 생성',
-  'book3/ch16-npc': '16장. NPC와 적 데이터',
-  'book3/ch17-scenarios': '17장. 시나리오 3편',
-  'book3/ch17-campaign': '17장b. 캠페인 아크',
-  'book3/appendix': '부록: GM 도구',
-  'book4/index': 'Book 4 목차',
-  'book4/power': '① 동력과 에너지',
-  'book4/daily': '② 일상 장비',
-  'book4/medical': '③ 의료·생체',
-  'book4/weapons': '④ 무기',
-  'book4/armor': '⑤ 방어구',
-  'book4/implants': '⑥ 임플란트',
-  'book4/vehicles': '⑦ 탈것',
-  'book4/sinki': '⑧ 신기·무속',
-  'book4/dimension': '⑨ 차원이동 장비',
-  'book4/services': '⑩ 서비스',
-  'book5/index': 'Book 5 목차',
-  'book5/understanding': '계의 이해',
-  'book5/generation': '계 생성 규칙',
-  'book5/physical': '물질계: 서울',
-  'book5/bunker': '벙커계',
-  'book5/catalog-natural': '자연계 카탈로그',
-  'book5/catalog-artificial': '인공계 카탈로그',
-  'book5/uncharted': '미탐험계 5종',
-  'book5/random': '랜덤 계 20개',
-  'book6/index': 'Book 6 목차',
-  'book6/classification': '존재의 분류',
-  'book6/tenebre': '흑공 존재',
-  'book6/artificial': '인공 존재',
-  'book6/modified': '변형 인간',
-  'book6/classes': '직업과 클래스',
-  'book6/npc-gallery': 'NPC 갤러리',
-  'book7/index': 'Book 7 목차',
-  'book7/embassies': '대사국',
-  'book7/corporations': '(주)기업',
-  'book7/guilds': '길드와 조직',
-  'book7/runners': '러너의 세계',
-  'book7/economy': '러너 경제',
-  'book7/missions': '미션 제너레이터',
-  'book7/relations': '세력 관계도',
-  'library/index': '단편 라이브러리'
+// ── Navigation structure ──
+const NAV = {
+  corerulebook: {
+    label: '코어 룰북 (Core Rulebook)',
+    prefix: 'corerulebook',
+    parts: [
+      { dir: '00_서문', label: '00 서문', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_이_책에_대하여', t: '이 책에 대하여' },
+        { f: '02_TRPG란_무엇인가', t: 'TRPG란 무엇인가' },
+        { f: '03_FEWK_3판_읽는_법', t: 'FEWK 3판 읽는 법' },
+      ]},
+      { dir: '01_1부_게임기초', label: '1부. 게임 기초', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_플레이어_GM_캐릭터', t: '플레이어·GM·캐릭터' },
+        { f: '02_주사위_3총사', t: '주사위 3총사' },
+        { f: '03_기본_판정_흐름', t: '기본 판정 흐름' },
+        { f: '04_세션_0', t: '세션 0' },
+      ]},
+      { dir: '02_2부_캐릭터', label: '2부. 캐릭터', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_6_Prime_Stats', t: '6 Prime Stats' },
+        { f: '02_스탯_수치와_Grade_Die', t: '스탯과 Grade Die' },
+        { f: '03_스킬', t: '스킬' },
+        { f: '04_태그', t: '태그' },
+        { f: '05_인터렉션_3슬롯', t: '인터렉션 3슬롯' },
+        { f: '06_프리셋_G0_G8', t: '프리셋 G-0~G-8' },
+        { f: '07_BP_생체순도', t: 'BP 생체순도' },
+        { f: '08_생성_10단계', t: '생성 10단계' },
+        { f: '09_관계와_유대', t: '관계와 유대' },
+      ]},
+      { dir: '03_3부_판정과_행동', label: '3부. 판정과 행동', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_Grade_Die_판정', t: 'Grade Die 판정' },
+        { f: '02_d100_판정', t: 'd100 판정' },
+        { f: '03_d6_Pool', t: 'd6 Pool' },
+        { f: '04_Position_x_Effect', t: 'Position × Effect' },
+        { f: '05_대립_저항_협상', t: '대립·저항·협상' },
+        { f: '06_수정치_순서_펌블', t: '수정치·펌블' },
+      ]},
+      { dir: '04_4부_전투', label: '4부. 전투', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_3_Scale_개요', t: '3 Scale 개요' },
+        { f: '02_이니셔티브', t: '이니셔티브' },
+        { f: '03_전투_흐름_6단계', t: '전투 흐름 6단계' },
+        { f: '04_방어_피해_HP', t: '방어·피해·HP' },
+        { f: '05_무기_Tier', t: '무기 Tier' },
+        { f: '06_특수_공격_상태이상', t: '특수 공격·상태 이상' },
+        { f: '07_환경_수정치', t: '환경 수정치' },
+        { f: '08_도주_추격', t: '도주·추격' },
+        { f: '09_전투_종료', t: '전투 종료' },
+        { f: '10_중상_후유증', t: '중상·후유증' },
+      ]},
+      { dir: '05_5부_자원과_트랙', label: '5부. 자원과 트랙', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_자원_5종_개요', t: '자원 5종 개요' },
+        { f: '02_운_토큰', t: '운 토큰' },
+        { f: '03_에고', t: '에고' },
+        { f: '04_장르자원_DSR', t: '장르자원 DSR' },
+        { f: '05_트라우마', t: '트라우마' },
+        { f: '06_4트랙_아키텍처', t: '4트랙 아키텍처' },
+        { f: '07_히트와_추적', t: '히트·추적' },
+      ]},
+      { dir: '06_6부_FEWK_고유규칙', label: '6부. FEWK 고유 규칙', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_흑공_농도와_노출', t: '흑공 농도와 노출' },
+        { f: '02_신기_신단_돌칩', t: '신기·신단·돌칩' },
+        { f: '03_샤이닝_매팅_현화', t: '샤이닝·매팅·현화' },
+        { f: '04_코핀과_차원이동', t: '코핀과 차원이동' },
+        { f: '05_첫_차원_진입', t: '첫 차원 진입' },
+        { f: '06_파이오니아', t: '파이오니아' },
+        { f: '07_드랍아웃_진사', t: '드랍아웃·진사' },
+        { f: '08_인과율_패러독스', t: '인과율·패러독스' },
+        { f: '09_시간도보', t: '시간도보' },
+      ]},
+      { dir: '07_7부_장비', label: '7부. 장비', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_무기_카탈로그', t: '무기 카탈로그' },
+        { f: '02_방어구_드론_군체', t: '방어구·드론·군체' },
+        { f: '03_임플란트', t: '임플란트' },
+        { f: '04_탄약_d6_Pool', t: '탄약·d6 Pool' },
+        { f: '05_차량', t: '차량' },
+        { f: '06_코핀과_동력셀', t: '코핀과 동력셀' },
+        { f: '07_계산도구_8종', t: '계산도구 8종' },
+      ]},
+      { dir: '08_8부_성장과_경력', label: '8부. 성장과 경력', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_세션_포인트', t: '세션 포인트' },
+        { f: '02_스탯_Tier_승급', t: 'Tier 승급' },
+        { f: '03_스킬_인터렉션_성장', t: '스킬·인터렉션 성장' },
+        { f: '04_은퇴_드랍_진사', t: '은퇴·드랍·진사' },
+        { f: '05_후기_캠페인', t: '후기 캠페인' },
+      ]},
+      { dir: '09_9부_팀_플레이', label: '9부. 팀 플레이', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_팀_판정', t: '팀 판정' },
+        { f: '02_재시도', t: '재시도' },
+        { f: '03_플래시백', t: '플래시백' },
+        { f: '04_PCvsPC_Downtime', t: 'PC vs PC·Downtime' },
+        { f: '05_팀_역할과_포지션', t: '팀 역할과 포지션' },
+        { f: '06_콘택트와_원거리_지원', t: '콘택트·원거리 지원' },
+      ]},
+      { dir: '10_10부_GM_가이드', label: '10부. GM 가이드', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_세션_0_안전툴', t: '세션 0 안전툴' },
+        { f: '02_세션_5단계_구조', t: '세션 5단계' },
+        { f: '03_난이도_TN_조정', t: '난이도·TN 조정' },
+        { f: '04_NPC_운영', t: 'NPC 운영' },
+        { f: '05_드라마틱_서술', t: '드라마틱 서술' },
+        { f: '06_문제상황_대응', t: '문제상황 대응' },
+        { f: '07_캠페인_설계', t: '캠페인 설계' },
+        { f: '08_GM_운영_체크리스트', t: 'GM 운영 체크리스트' },
+        { f: '09_NPC_비밀_파일', t: 'NPC 비밀 파일' },
+        { f: '10_밸런스_위협등급', t: '밸런스·위협 등급' },
+        { f: '11_세션_로그와_기록', t: '세션 로그·기록' },
+        { f: '12_즉석_구역_생성', t: '즉석 구역 생성' },
+      ]},
+      { dir: '11_11부_NPC_카탈로그', label: '11부. NPC 카탈로그', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_D급_하수', t: 'D급 하수' },
+        { f: '02_C급_표준', t: 'C급 표준' },
+        { f: '03_B급_엘리트', t: 'B급 엘리트' },
+        { f: '04_A급_보스', t: 'A+급 보스' },
+        { f: '05_원전_서사_NPC', t: '원전 서사 NPC 25명' },
+        { f: '06_Scale_C_개체', t: 'Scale C 개체' },
+      ]},
+      { dir: '12_12부_시나리오_씨앗', label: '12부. 시나리오 씨앗', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_도입_훅_6선', t: '도입 훅 6선' },
+        { f: '02_원샷_시나리오_3종', t: '원샷 시나리오 3종' },
+        { f: '03_이벤트_판정_테이블', t: '이벤트·판정 테이블' },
+        { f: '04_캠페인_아크', t: '캠페인 아크' },
+        { f: '05_입문_시나리오_신성의_카드', t: '입문 시나리오 「신성의 카드」' },
+        { f: '06_입문_시나리오_흑공의_저택', t: '입문 시나리오 「흑공의 저택」' },
+      ]},
+      { dir: '13_13부_온라인_디지털', label: '13부. 온라인·디지털', items: [
+        { f: 'README', t: '목차' },
+        { f: '01_온라인_플레이_4양식', t: '온라인 플레이 4 양식' },
+        { f: '02_ORPG_플레이어', t: 'ORPG 플레이어' },
+        { f: '03_ORPG_GM', t: 'ORPG GM' },
+        { f: '04_커뮤플레이_진행자', t: '커뮤플레이 진행자' },
+        { f: '05_PBeM', t: 'PBeM' },
+        { f: '06_게시판_플레이', t: '게시판 플레이' },
+        { f: '07_비동기_공통원칙', t: '비동기 공통 원칙' },
+        { f: '08_Roll20_Foundry', t: 'Roll20·Foundry' },
+        { f: '09_매크로_YAML', t: '매크로·YAML' },
+        { f: '10_AI_병행', t: 'AI 병행' },
+      ]},
+      { dir: '14_부록', label: '14부. 부록', items: [
+        { f: 'README', t: '목차' },
+        { f: 'A_캐릭터시트', t: 'A. 캐릭터 시트' },
+        { f: 'B_치트시트', t: 'B. 치트 시트' },
+        { f: 'C_용어집', t: 'C. 용어집' },
+        { f: 'D_색인', t: 'D. 색인' },
+        { f: 'E_WorldBook_참조가이드', t: 'E. World Book 참조' },
+        { f: 'F_원전_레퍼런스_인덱스', t: 'F. 원전 레퍼런스' },
+      ]},
+    ]
+  },
+  worldbook: {
+    label: '월드 북 (World Book)',
+    prefix: 'worldbook',
+    parts: [
+      { dir: '00_서문', label: '00 서문', items: [] },
+      { dir: '01_1부_세계톤', label: '1부. 세계 톤', items: [] },
+      { dir: '02_2부_세계법칙', label: '2부. 세계 법칙', items: [] },
+      { dir: '03_3부_역사연대기', label: '3부. 역사·연대기', items: [] },
+      { dir: '04_4부_지리', label: '4부. 지리', items: [] },
+      { dir: '05_5부_사회정치경제', label: '5부. 사회·정치·경제', items: [] },
+      { dir: '06_6부_일상문화', label: '6부. 일상·문화', items: [] },
+      { dir: '07_7부_러너생태', label: '7부. 러너 생태', items: [] },
+      { dir: '08_8부_계도감', label: '8부. 계도감', items: [] },
+      { dir: '09_9부_존재도감', label: '9부. 존재도감', items: [] },
+      { dir: '10_10부_세력도감', label: '10부. 세력도감', items: [] },
+      { dir: '12_부록', label: '부록', items: [] },
+    ]
+  }
 };
 
-// Convert [[wikilinks]] to markdown links before table parsing
+// ── Build navigation menu ──
+function buildNav() {
+  const menu = document.getElementById('navMenu');
+  let html = '';
+
+  for (const bookKey of Object.keys(NAV)) {
+    const book = NAV[bookKey];
+    html += `<details class="nav-book"${bookKey === 'corerulebook' ? ' open' : ''}>`;
+    html += `<summary>${book.label}</summary>`;
+    html += `<div class="nav-children">`;
+
+    for (const part of book.parts) {
+      if (part.items.length > 0) {
+        html += `<div class="nav-part">${part.label}</div>`;
+        for (const item of part.items) {
+          const page = `${book.prefix}/${part.dir}/${item.f}`;
+          html += `<a class="nav-link sub" href="#${page}" data-page="${page}">${item.t}</a>`;
+        }
+      } else {
+        // World Book: 파트 단위로만 링크 (동적으로 각 파트 README 호출)
+        const page = `${book.prefix}/${part.dir}/README`;
+        html += `<a class="nav-link sub" href="#${page}" data-page="${page}">${part.label}</a>`;
+      }
+    }
+
+    html += `</div></details>`;
+  }
+
+  menu.innerHTML = html;
+}
+
+// ── Theme ──
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('fewk-theme', theme);
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+  if (theme === 'dark') {
+    icon.textContent = '☀️';
+    label.textContent = '라이트 모드';
+  } else {
+    icon.textContent = '🌙';
+    label.textContent = '다크 모드';
+  }
+}
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme') || 'light';
+  applyTheme(cur === 'light' ? 'dark' : 'light');
+}
+// Initial
+(function() {
+  const saved = localStorage.getItem('fewk-theme');
+  const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (prefers ? 'dark' : 'light'));
+})();
+
+// ── Markdown rendering ──
 function convertWikilinks(md) {
-  // First: normalize \| to | inside [[ ]]
-  md = md.replace(/\[\[([^\]]*?)\]\]/g, function(match) {
-    return match.replace(/\\\|/g, '|');
-  });
-  // [[path|display text]]
-  md = md.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, function(_, path, text) {
-    return '[' + text.trim() + '](#' + path.trim() + ')';
-  });
-  // [[path]]
-  md = md.replace(/\[\[([^\]]+)\]\]/g, function(_, path) {
-    var label = PAGE_LABELS[path.trim()] || path.trim();
-    return '[' + label + '](#' + path.trim() + ')';
-  });
+  md = md.replace(/\[\[([^\]]*?)\]\]/g, function(m) { return m.replace(/\\\|/g, '|'); });
+  md = md.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, function(_, p, t) { return '[' + t.trim() + '](#' + p.trim() + ')'; });
+  md = md.replace(/\[\[([^\]]+)\]\]/g, function(_, p) { return '[' + p.trim() + '](#' + p.trim() + ')'; });
   return md;
 }
 
-// Determine base URL for fetching .md files
-function getBaseUrl() {
-  var path = window.location.pathname;
-  if (path.endsWith('/')) return path;
-  return path.substring(0, path.lastIndexOf('/') + 1);
+// 상대 경로 `.md` 링크를 해시 라우팅으로 변환
+function rewriteLinks(containerEl, currentPage) {
+  const curParts = currentPage.split('/');
+  curParts.pop(); // 현재 파일 제외, 폴더 남김
+  const curDir = curParts.join('/');
+
+  containerEl.querySelectorAll('a').forEach(function(a) {
+    const href = a.getAttribute('href');
+    if (!href) return;
+
+    // 외부 링크 유지
+    if (/^(https?:|mailto:)/.test(href)) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
+      return;
+    }
+
+    // 이미 해시 링크
+    if (href.startsWith('#')) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        navigateTo(href.substring(1));
+      });
+      return;
+    }
+
+    // 상대 경로 .md 링크 → 해시 라우팅
+    if (href.endsWith('.md') || href.includes('.md#') || /\.\.\//.test(href)) {
+      // 원본 Core Rulebook·World Book 참조 링크는 무시 (로컬 파일 없음)
+      // 대신 코어룰북 내부 링크만 처리
+      let resolved = href.replace(/^\.\//, '');
+      // 부모 디렉토리 처리
+      let parts = curDir.split('/').filter(Boolean);
+      const target = resolved.split('/');
+      for (let i = 0; i < target.length; i++) {
+        if (target[i] === '..') parts.pop();
+        else if (target[i] === '.') continue;
+        else parts.push(target[i]);
+      }
+      // 외부 책 링크(Core Rulebook 외부) 처리
+      if (parts[0] !== 'corerulebook' && parts[0] !== 'worldbook') {
+        // World Book 외부 참조 등 — 해당 파일이 변환된 위치 추정
+        // 예: ../../[3판%20FEWK%20World%20Book]/... → worldbook/...
+        const full = parts.join('/');
+        const wbMatch = full.match(/\[3판\s*FEWK\s*World\s*Book\]\/(.+)/);
+        if (wbMatch) {
+          parts = ['worldbook'].concat(wbMatch[1].split('/'));
+        } else {
+          // 링크 변환 불가 — 클릭 비활성화
+          a.style.opacity = '0.6';
+          a.style.cursor = 'not-allowed';
+          a.addEventListener('click', function(e) { e.preventDefault(); });
+          return;
+        }
+      }
+      let page = parts.join('/').replace(/\.md$/, '');
+      // 폴더만 가리키면 README 추가
+      if (page.endsWith('/')) page += 'README';
+
+      a.setAttribute('href', '#' + page);
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        navigateTo(page);
+      });
+    }
+  });
 }
 
-// Load and render a page
+// ── Load and render a page ──
 async function loadPage(page) {
-  var content = document.getElementById('content');
-  var breadcrumb = document.getElementById('breadcrumb');
-
+  const content = document.getElementById('content');
+  const breadcrumb = document.getElementById('breadcrumb');
   content.innerHTML = '<div class="loading">로딩 중</div>';
 
-  // Build breadcrumb
-  var parts = page.split('/');
-  var bc = '<a href="#home">FEWK</a>';
-  var BOOK_NAMES = {
-    'book0': 'Book 0', 'book1': 'Book 1', 'book2': 'Book 2', 'book3': 'Book 3',
-    'book4': 'Book 4', 'book5': 'Book 5', 'book6': 'Book 6', 'book7': 'Book 7',
-    'library': '단편 라이브러리'
+  // 하드코딩된 최상위 페이지 (home, roadmap, license)
+  const TOP_PAGES = {
+    'home': 'content/home.md',
+    'roadmap': 'content/roadmap.md',
+    'license': 'content/license.md'
   };
-  if (page !== 'home') {
-    var bookKey = parts[0];
-    if (BOOK_NAMES[bookKey]) {
-      bc += ' / <a href="#' + bookKey + '/index">' + BOOK_NAMES[bookKey] + '</a>';
-      if (parts[1] && parts[1] !== 'index') {
-        bc += ' / ' + (PAGE_LABELS[page] || parts[1]);
-      }
-    }
+
+  let url;
+  if (TOP_PAGES[page]) {
+    url = TOP_PAGES[page];
+  } else {
+    url = 'content/' + page + '.md';
   }
+
+  // Breadcrumb
+  const parts = page.split('/');
+  let bc = '<a href="#home">FEWK</a>';
+  if (page === 'home') bc += ' / 홈';
+  else if (page === 'roadmap') bc += ' / 로드맵';
+  else if (page === 'license') bc += ' / 라이선스';
+  else if (parts[0] === 'corerulebook') bc += ' / 코어 룰북';
+  else if (parts[0] === 'worldbook') bc += ' / 월드 북';
+  if (parts.length > 1) bc += ' / ' + parts[parts.length - 1].replace(/^\d+_/, '').replace(/_/g, ' ');
   breadcrumb.innerHTML = bc;
 
-  // Highlight active nav + auto-open the right book section
+  // Highlight active nav
   document.querySelectorAll('.nav-link').forEach(function(el) {
     el.classList.toggle('active', el.dataset.page === page);
   });
-  // Auto-expand the book section containing the current page
   document.querySelectorAll('.nav-book').forEach(function(det) {
-    var hasActive = det.querySelector('.nav-link.active');
+    const hasActive = det.querySelector('.nav-link.active');
     if (hasActive) det.open = true;
   });
 
-  // Fetch markdown
-  var url = getBaseUrl() + page + '.md';
   try {
-    var res = await fetch(url);
+    const res = await fetch(url);
     if (!res.ok) throw new Error(res.status);
-    var md = await res.text();
-
-    // Convert wikilinks then parse markdown
+    let md = await res.text();
     md = convertWikilinks(md);
     content.innerHTML = marked.parse(md);
 
-    // Wrap tables in scrollable container
+    // Wrap tables
     content.querySelectorAll('table').forEach(function(t) {
-      var wrap = document.createElement('div');
-      wrap.className = 'table-wrap';
-      t.parentNode.insertBefore(wrap, t);
-      wrap.appendChild(t);
+      const w = document.createElement('div');
+      w.className = 'table-wrap';
+      t.parentNode.insertBefore(w, t);
+      w.appendChild(t);
     });
 
-    // Make all wiki links use navigateTo
-    content.querySelectorAll('a[href^="#"]').forEach(function(a) {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        var target = a.getAttribute('href').substring(1);
-        navigateTo(target);
-      });
-    });
+    // Rewrite internal links
+    rewriteLinks(content, page);
 
-    // Scroll to top
     window.scrollTo(0, 0);
-
-  } catch(e) {
+  } catch (e) {
     content.innerHTML =
       '<div class="not-found">' +
       '<h2>페이지를 찾을 수 없습니다</h2>' +
-      '<p>' + page + '.md</p>' +
+      '<p>' + page + '</p>' +
       '<p><a href="#home">홈으로 돌아가기</a></p>' +
       '</div>';
   }
 
-  // Close mobile sidebar
   document.querySelector('.sidebar').classList.remove('open');
 }
 
-// Navigate
-function navigateTo(page) {
-  window.location.hash = page;
+function navigateTo(page) { window.location.hash = page; }
+
+// ── Search (client-side simple text match) ──
+// 데이터 구조: 모든 NAV 항목 평탄화
+const SEARCH_INDEX = [];
+function buildSearchIndex() {
+  // 최상위
+  SEARCH_INDEX.push({ t: 'FEWK 소개·홈', p: 'home' });
+  SEARCH_INDEX.push({ t: '로드맵', p: 'roadmap' });
+  SEARCH_INDEX.push({ t: '라이선스 FWOL', p: 'license' });
+
+  for (const bookKey of Object.keys(NAV)) {
+    const book = NAV[bookKey];
+    for (const part of book.parts) {
+      SEARCH_INDEX.push({ t: book.label + ' ' + part.label, p: book.prefix + '/' + part.dir + '/README', part: part.label });
+      for (const item of part.items) {
+        SEARCH_INDEX.push({
+          t: item.t,
+          p: book.prefix + '/' + part.dir + '/' + item.f,
+          part: part.label,
+          book: book.label
+        });
+      }
+    }
+  }
+}
+buildSearchIndex();
+
+function runSearch(q) {
+  const results = document.getElementById('searchResults');
+  q = q.trim().toLowerCase();
+  if (!q) { results.classList.remove('open'); return; }
+
+  const matches = SEARCH_INDEX.filter(function(item) {
+    return item.t.toLowerCase().includes(q) || (item.part && item.part.toLowerCase().includes(q));
+  }).slice(0, 20);
+
+  if (matches.length === 0) {
+    results.innerHTML = '<div class="search-empty">결과 없음</div>';
+  } else {
+    results.innerHTML = matches.map(function(m) {
+      return '<div class="search-result" data-page="' + m.p + '">' +
+        m.t +
+        (m.book ? '<span class="path">' + m.book + ' · ' + m.part + '</span>' : '') +
+        '</div>';
+    }).join('');
+    results.querySelectorAll('.search-result').forEach(function(el) {
+      el.addEventListener('click', function() {
+        navigateTo(el.dataset.page);
+        document.getElementById('searchInput').value = '';
+        results.classList.remove('open');
+      });
+    });
+  }
+  results.classList.add('open');
 }
 
-// Hash change listener
+// ── Comment Modal (mailto) ──
+function openCommentModal() {
+  document.getElementById('commentModal').classList.add('open');
+  setTimeout(function() { document.getElementById('commentText').focus(); }, 100);
+}
+function closeCommentModal() {
+  document.getElementById('commentModal').classList.remove('open');
+  document.getElementById('commentText').value = '';
+}
+function sendComment() {
+  const text = document.getElementById('commentText').value.trim();
+  if (!text) { alert('내용을 입력해주세요.'); return; }
+  const page = window.location.hash.substring(1) || 'home';
+  const subject = encodeURIComponent('[FEWK Book 피드백] ' + page);
+  const body = encodeURIComponent(
+    '[페이지] ' + page + '\n' +
+    '[URL] ' + window.location.href + '\n' +
+    '[시각] ' + new Date().toISOString() + '\n\n' +
+    '----- 의견 -----\n' +
+    text + '\n\n' +
+    '-- FEWK 룰북 샘플 피드백 --'
+  );
+  window.location.href = 'mailto:whtdrgon@gmail.com?subject=' + subject + '&body=' + body;
+  closeCommentModal();
+}
+
+// ── Hash routing ──
 window.addEventListener('hashchange', function() {
-  var page = window.location.hash.substring(1) || 'home';
+  const page = window.location.hash.substring(1) || 'home';
   loadPage(page);
 });
 
-// Initial load
-(function() {
-  var page = window.location.hash.substring(1) || 'home';
+// ── Init ──
+(function init() {
+  buildNav();
+
+  // Search listeners
+  const si = document.getElementById('searchInput');
+  si.addEventListener('input', function() { runSearch(this.value); });
+  si.addEventListener('focus', function() { if (this.value) runSearch(this.value); });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-box')) {
+      document.getElementById('searchResults').classList.remove('open');
+    }
+  });
+
+  // Escape closes modal
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCommentModal();
+  });
+
+  // Initial load
+  const page = window.location.hash.substring(1) || 'home';
   loadPage(page);
 })();
 </script>
