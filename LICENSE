@@ -28,11 +28,30 @@ The MIT License above applies ONLY to the code scaffolding of this repository
 (index.html, scripts/convert.py, CSS/JS, and site-structure files).
 
 The FEWK worldview content under `content/` (Core Rulebook, World Book, home,
-roadmap, and the FWOL license text itself) is licensed under the separate
-FEWK Worldview Open License (FWOL) v1.0, the full text of which is at
-`content/license.md`.
+roadmap, and the FWOL license text itself) is licensed under:
 
-IP ownership of the FEWK worldview: Kim Dongeun (WhtDrgon), individual.
-Procedural worldbuilding process technology: MEJE Works Corp.
+  Creative Commons Attribution 4.0 International (CC BY 4.0)
+  https://creativecommons.org/licenses/by/4.0/
 
-For questions regarding the FWOL: whtdrgon@gmail.com
+Commercial use IS permitted under CC BY 4.0. No royalty is owed to the
+copyright holder or to MEJE Works Corp. for derivative works set in the FEWK
+universe. Derivative works must be marked as "FEWK 세계관 / FEWK Universe"
+works and must include attribution per content/license.md § 5.
+
+The names "FEWK" and "Far East White Kingdom", the FEWK logo, and related
+brand identifiers are trademarks of MEJE Works Corp. (represented by
+Kim Dongeun / WhtDrgon). Use of the FEWK brand as a product's primary
+brand identity, use of language implying official endorsement, or any
+licensing/assignment of FEWK brand rights to third parties requires a
+separate trademark license from MEJE Works Corp.
+
+Full terms, trademark policy, and canon governance:
+  content/license.md  — FEWK Worldview Open License (FWOL) v2.0
+
+Canon ownership: FEWK official canon is set exclusively through publications
+by Kim Dongeun / MEJE Works Corp.
+
+Content copyright: Kim Dongeun (WhtDrgon), individual.
+Brand/trademark: MEJE Works Corp.
+
+Contact: whtdrgon@gmail.com
