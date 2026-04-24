@@ -57,7 +57,7 @@ python3 -m http.server 8080
 
 ## 링크 / Links
 
-- Twitter/X: [@게임기획자하얀용](https://twitter.com/게임기획자하얀용)
+- Twitter/X: [@whtdrgon](https://x.com/whtdrgon)
 - 2022 NFT 콜라보 보도: [머니투데이 기사](https://www.mt.co.kr/stock/2022/07/27/2022072715530622171)
 - 2024.6 KEITI편 시범 펀딩: [tumblbug.com/fewkop](https://tumblbug.com/fewkop)
 
