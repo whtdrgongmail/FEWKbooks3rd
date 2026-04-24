@@ -26,7 +26,7 @@ import shutil
 from pathlib import Path
 
 # ─── 경로 ───
-BASE = Path("/Users/whtdrgon/Library/CloudStorage/GoogleDrive-www@whtdrgon.com/내 드라이브/dev/_FEWK 룰북 계획")
+BASE = Path("/Users/whtdrgon/Library/CloudStorage/GoogleDrive-whtdrgon@gmail.com/내 드라이브/_Code/_FEWK 룰북 계획")
 CORE_SRC = BASE / "[3판 FEWK Core Rulebook]"
 WORLD_SRC = BASE / "[3판 FEWK World Book]"
 OUT = BASE / "_ClaudeCode_Git_FEWK" / "FEWKbooks" / "content"
