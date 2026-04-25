@@ -65,6 +65,6 @@ FEWK 세계의 게임을 처음부터 끝까지 책임지는 **종합 규칙서*
 
 ## 라이선스
 
-본 책은 [**FWOL v2.0**](#license) (CC BY 4.0 기반) 으로 배포됩니다. 상업 이용 자유. 팬 작품은 "FEWK 세계관 작품 / FEWK Universe Work"로 마크합니다.
+본 책은 [**FWOL v2.1**](#license) (CC BY 4.0 기반) 으로 배포됩니다. 상업 이용 자유. 팬 작품은 "FEWK 세계관 작품 / FEWK Universe Work"로 마크합니다.
 
 문의 — FEWK 거버넌스: **FEWK@meje.kr**

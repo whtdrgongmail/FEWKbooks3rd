@@ -34,14 +34,14 @@ FEWKbooks/
 | 대상 | 라이선스 | 파일 |
 |---|---|---|
 | **코드** (index.html, CSS/JS, scripts/convert.py) | [MIT License](LICENSE) | `LICENSE` |
-| **FEWK 세계관 콘텐츠** (`content/` 아래 모든 원고) | FWOL v2.0 (CC BY 4.0 기반) | [content/license.md](content/license.md) |
+| **FEWK 세계관 콘텐츠** (`content/` 아래 모든 원고) | FWOL v2.1 (CC BY 4.0 기반) | [content/license.md](content/license.md) |
 
 - **콘텐츠 저작권**: 김동은 Kim Dongeun (활동명 하얀용 / WhtDrgon) 개인
 - **상표권**: MEJE Works Corp. ("FEWK", FEWK 로고 일체)
 - **공식 관리 주체**: FEWK 거버넌스 (FEWK Governance). 2026-04-25 기준 김동은 단독 구성, 단계적 확장 예정
 - **생산 기술**: MEJE Works Corp. 소유의 "세계관 관리 프로세스" 기술 활용
 
-FWOL v2.0부터 **상업 이용이 자유롭게 허용**됩니다 (CC BY 4.0 기반, 로열티 없음). 팬·상업 2차 창작은 "FEWK 세계관 작품 / FEWK Universe Work"로 마크하며, 자세한 조건과 FEWK 브랜드 상표 라이선스 범위는 [content/license.md](content/license.md) 참조. 라이선스 개정 이력은 [[FWOL]/CHANGELOG.md]([FWOL]/CHANGELOG.md).
+FWOL v2.1부터 **상업 이용이 자유롭게 허용**됩니다 (CC BY 4.0 기반, 로열티 없음). 팬·상업 2차 창작은 "FEWK 세계관 작품 / FEWK Universe Work"로 마크하며, 자세한 조건과 FEWK 브랜드 상표 라이선스 범위는 [content/license.md](content/license.md) 참조. 라이선스 개정 이력은 [[FWOL]/CHANGELOG.md]([FWOL]/CHANGELOG.md).
 
 ## 피드백 / Feedback
 
