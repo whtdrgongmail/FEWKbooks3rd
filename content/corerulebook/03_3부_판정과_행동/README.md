@@ -23,14 +23,12 @@
 
 | 순서 | 항목 | 요지 |
 |---|---|---|
-| 01 | [Grade Die 판정 상세](01_Grade_Die_판정.md) ◕ | Ace 폭발·Botch·Margin 계산 |
-| 02 | [d100 판정 — 세계법칙·커먼센스](02_d100_판정.md) ◕ | 언제 d100을 쓰는가 |
-| 03 | [d6 Pool — 연료 탱크](03_d6_Pool.md) ◕ | 저장·소모 규칙 |
-| 04 | [Position × Effect](04_Position_x_Effect.md) ◕ | 4×3 매트릭스 · Controlled/Risky/Desperate × Limited/Standard/Great |
-| 05 | [대립·저항·협상 판정](05_대립_저항_협상.md) ◕ | 대립 판정 · 저항 판정 · 협상 |
-| 06 | [수정치 합산 순서·펌블 심화](06_수정치_순서_펌블.md) ◕ | 수정치 순서 고정 · 펌블 처리 |
-
-**3부 v0.1 산문 초고 완성** (2026-04-23). Grade Die·d100·d6 Pool 3 체계 분리, 9 조합 매트릭스, 세 판정 유형, Fumble 4 용어 구분 완료.
+| 01 | [Grade Die 판정 상세](01_Grade_Die_판정.md) | Ace 폭발·Botch·Margin 계산 |
+| 02 | [d100 판정 — 세계법칙·커먼센스](02_d100_판정.md) | 언제 d100을 쓰는가 |
+| 03 | [d6 Pool — 연료 탱크](03_d6_Pool.md) | 저장·소모 규칙 |
+| 04 | [Position × Effect](04_Position_x_Effect.md) | 4×3 매트릭스 · Controlled/Risky/Desperate × Limited/Standard/Great |
+| 05 | [대립·저항·협상 판정](05_대립_저항_협상.md) | 대립 판정 · 저항 판정 · 협상 |
+| 06 | [수정치 합산 순서·펌블 심화](06_수정치_순서_펌블.md) | 수정치 순서 고정 · 펌블 처리 |
 
 ---
 
