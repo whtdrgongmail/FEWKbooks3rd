@@ -150,6 +150,8 @@ Position·Effect가 바뀌는 순간:
 - 위험 요소 변화 (엄폐 상실·주변 적 등장 등)
 - Partial 결과로 Position 악화
 
+> 🎯 **GM 팁** — Position과 Effect를 매번 길게 선언하지 않아도 됩니다. "Risky/Standard"가 기본값이라는 합의가 테이블에 자리 잡으면, 그와 다를 때만 "이건 Desperate" "이건 Great"로 짧게 알려주는 식으로 운영하십시오. 매 판정마다 9칸 매트릭스를 펼치는 GM이 가장 빨리 지칩니다.
+
 ## 4-G. 예시 — 침투 장면의 Position 변화
 
 > **장면**: PC 팀이 ㈜신성 지점에 침투. 세 단계 진행:
