@@ -216,14 +216,141 @@ FEWK는 Blades와 매우 유사한 메커니즘. 거의 직접 호환:
 
 타 시스템 자체의 SRD/라이선스(D&D 5e SRD CC BY 4.0, PbtA license, OGL 등)는 별도 준수.
 
-## G-6. 향후 확장 (분기별)
+## G-6. Pathfinder 2e 변환
 
-본 부록은 D&D 5e 중심 v1입니다. 다음 시스템 변환을 분기별 1시스템씩 추가 예정:
+PF2e의 4단계 성공(Critical Success / Success / Failure / Critical Failure)은 FEWK Position × Effect와 자연스럽게 호환됩니다. PF2e의 정밀한 액션 경제도 FEWK 전투에 깊이를 더할 수 있습니다.
 
-- **Pathfinder 2e 변환** — 4단계 성공 ↔ Position × Effect 정밀 호환
-- **Cypher System 변환** — Monte Cook의 추상 시스템과 FEWK 차원 호환성
-- **Genesys 변환** — Star Wars FFG 같은 narrative dice 시스템 호환
-- **CoC 7th 변환** — Call of Cthulhu의 Sanity·호러 메커니즘과 FEWK 흑공 호러 결합
+### G-6.1 판정
+
+PF2e: d20 + 모디파이어 vs DC. 4단계 결과:
+
+- DC + 10 이상: Critical Success
+- DC ~ DC+9: Success
+- DC - 9 ~ DC - 1: Failure
+- DC - 10 이하: Critical Failure
+
+FEWK Margin과 직접 매핑:
+- Critical Success ↔ Critical (차이값 +20)
+- Success ↔ Full (차이값 +5~9)
+- Failure ↔ 근소 실패
+- Critical Failure ↔ 대실패 (펌블 포함)
+
+### G-6.2 Position × Effect 호환
+
+PF2e의 *MAP (Multiple Attack Penalty)* 와 *Conditions* 시스템이 FEWK Position을 정밀하게 표현. Risky = -2 상황 모디파이어, Desperate = -5 + Critical Failure 시 추가 대가.
+
+### G-6.3 종족·클래스 → FEWK 직업
+
+- 수호사 ↔ Champion (Paladin 변종)
+- 신사 ↔ Cleric (Domain: Fate·Truth·Light)
+- 흑사 ↔ Sorcerer (Bloodline: Aberrant)
+- 현물제조사 ↔ Alchemist (Bomber + Mutagenist)
+- 러너 ↔ Rogue (Racket: Mastermind·Scoundrel)
+
+### G-6.4 추천: PF2e Free Archetype 룰 활용
+
+FEWK는 PC가 *여러 직업을 거치는* 톤이 강합니다. PF2e의 Free Archetype 옵션 룰로 PC가 두 번째 직업(예: 수호사 + 야전교수)을 가질 수 있게 하면 FEWK 톤이 더 살아납니다.
+
+## G-7. Cypher System 변환 (Numenera·The Strange)
+
+Monte Cook의 Cypher System은 *추상화된 차원 이동·이상 사물*을 다루는 데 강합니다. FEWK의 차원·코핀과 메커니즘적으로 잘 어울립니다.
+
+### G-7.1 판정
+
+Cypher: d20 vs Difficulty (1~10). PC가 Effort·Asset·Skill로 Difficulty를 낮춤. FEWK의 *수정치 합산* 구조와 직결.
+
+- Difficulty 1 (DC 3) ↔ FEWK TN 5
+- Difficulty 4 (DC 12) ↔ FEWK TN 25
+- Difficulty 7 (DC 21) ↔ FEWK TN 60
+- Difficulty 10 (DC 30) ↔ FEWK TN 100
+
+### G-7.2 Pool 시스템 — FEWK 자원과 호환
+
+Cypher PC는 Might·Speed·Intellect 3 Pool. FEWK 자원으로:
+- Might Pool ↔ HP + d6 Pool
+- Speed Pool ↔ DSR (장르 자원)
+- Intellect Pool ↔ 에고
+
+### G-7.3 Cyphers (일회용 이상 사물) ↔ FEWK 광전·돌칩·신단칩
+
+Cypher 시스템의 핵심 — 일회용 마법 도구(Cypher) — 가 FEWK의 광전·돌칩·신단칩과 완벽 호환:
+- Cypher = 광전 (한 번 쓰고 사라지는 차원 이동 매개)
+- Cypher = 돌칩 (한 번의 신기 효과)
+- Cypher = 신단칩 (저장된 신기)
+
+PC는 *언제 어느 Cypher를 쓸지*를 결정 — FEWK 자원 운영 톤과 정확히 일치.
+
+### G-7.4 차원 — The Strange가 FEWK에 가장 가까움
+
+Cypher System의 자매 게임 *The Strange*는 다중 차원 횡단을 다룹니다. FEWK의 차원 이동 톤에 가장 직접 호환.
+
+## G-8. Genesys 변환 (Fantasy Flight)
+
+Genesys는 Star Wars: Edge of the Empire의 시스템을 일반화한 *narrative dice* 시스템. 결과가 *성공/실패 + 부수 효과* 다층으로 나오는 점이 FEWK의 Position × Effect와 잘 맞습니다.
+
+### G-8.1 Narrative Dice
+
+Genesys: 6 종류 다이스(Boost·Setback·Ability·Difficulty·Proficiency·Challenge). 결과는 Success/Failure × Advantage/Threat × Triumph/Despair의 3축.
+
+FEWK의 결과 해석에 매핑:
+- Success + Advantage ↔ Full + 좋은 부수 효과
+- Success + Threat ↔ Partial (성공 + 대가)
+- Failure + Advantage ↔ 실패하지만 부수 이득
+- Failure + Threat ↔ 대실패
+- Triumph ↔ Critical (Ace 폭발)
+- Despair ↔ Fumble
+
+### G-8.2 흑공 ↔ Setback Dice
+
+흑공 노출의 효과를 Genesys의 Setback dice로 표현. 농도 1단계마다 Setback 1개 추가. PC가 농도 6단계 환경에서 판정하면 6개 Setback dice 추가.
+
+### G-8.3 추천: Shadow of the Beanstalk Setting Pack
+
+Genesys의 사이버펑크 세팅 팩 *Shadow of the Beanstalk*가 FEWK 톤과 가장 가까움. 그 룰을 그대로 사용하고 세계관만 FEWK로 교체.
+
+## G-9. Call of Cthulhu 7e 변환
+
+CoC 7e의 *Sanity 시스템*과 *Pulp 옵션 룰*이 FEWK의 흑공 호러·트라우마와 호환됩니다.
+
+### G-9.1 판정 — d100 직접 호환
+
+CoC: d100 vs Skill. FEWK의 d100 판정과 직접 호환.
+- Skill 50 = TN 50
+- Hard Success (Skill / 2) ↔ Full
+- Extreme Success (Skill / 5) ↔ Critical
+
+### G-9.2 Sanity ↔ FEWK 에고 + 트라우마
+
+CoC Sanity는 FEWK 에고 + 트라우마 트랙의 직접 변환:
+- Starting Sanity (POW × 5) ↔ FEWK 에고 (PRE × 2)
+- Sanity Loss → 에고 감소 + 해당 트라우마 +1
+- Indefinite Insanity ↔ FEWK 트라우마 임계 도달
+- Permanent Insanity ↔ 진사 (Permanent Removal)
+
+### G-9.3 흑공 ↔ Mythos Encounter
+
+CoC의 *Mythos Encounter* 시스템이 흑공 분출에 직접 매핑. 흑공 농도별 Sanity Loss 표:
+
+| 흑공 농도 | Sanity Loss |
+|:---:|:---:|
+| 1~3 (저) | 0/1d3 |
+| 4~6 (중) | 1/1d6 |
+| 7~9 (고) | 1d4/2d6 |
+| 10 (극한) | 1d6/2d10 |
+| 신단출 (역사 사건) | 1d10/3d10 |
+
+### G-9.4 추천: Pulp Cthulhu 옵션 룰
+
+CoC 7e의 *Pulp Cthulhu* 옵션이 FEWK 톤과 더 가깝습니다. PC가 *액션 영웅*에 더 가까워 — FEWK 러너의 톤과 직결.
+
+## G-10. 향후 확장
+
+본 v2부터 D&D 5e + PbtA + L&F + Mörk Borg/Mothership + Pathfinder 2e + Cypher + Genesys + CoC 7e의 8 시스템 변환 가이드 제공. 향후 추가 후보:
+
+- **Free League 시스템** — Forbidden Lands·Mutant Year Zero·Vaesen
+- **OSR 일반** — Knave·Old-School Essentials
+- **Forged in the Dark** — Blades 외 Scum & Villainy 등
+- **Powered by the Apocalypse 다른 변종** — Monsterhearts·Masks·Avatar Legends
 
 마스터 또는 거버넌스가 시스템별 전문가 협업을 통해 분기별 추가.
 
